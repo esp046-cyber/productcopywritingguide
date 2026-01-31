@@ -1,0 +1,2528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI Product Copywriter 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            padding: 1%;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4% 1%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            font-size: 11px;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 3% 1%;
+            background: none;
+            border: none;
+            font-size: 12px;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 1%;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .section {
+            margin-bottom: 4%;
+        }
+
+        label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 2%;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 3%;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: inherit;
+            margin-bottom: 1%;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 4%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-bottom: 1%;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .output {
+            background: #f1f5f9;
+            padding: 3%;
+            border-radius: 8px;
+            font-size: 12px;
+            line-height: 1.6;
+            margin-top: 2%;
+            white-space: pre-wrap;
+        }
+
+        .guide-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 3%;
+            margin-bottom: 2%;
+        }
+
+        .guide-card h3 {
+            font-size: 13px;
+            color: var(--primary);
+            margin-bottom: 2%;
+        }
+
+        .guide-card p {
+            font-size: 11px;
+            line-height: 1.5;
+            color: #475569;
+        }
+
+        .guide-card ul {
+            margin: 2% 0 0 4%;
+            font-size: 11px;
+        }
+
+        .guide-card li {
+            margin-bottom: 1%;
+            color: #64748b;
+        }
+
+        .template-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2%;
+            margin-bottom: 3%;
+        }
+
+        .template-btn {
+            padding: 3%;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .template-btn:hover {
+            border-color: var(--primary);
+            background: #f8fafc;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 4%;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        .copy-btn {
+            background: #10b981;
+            margin-top: 2%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Product Copywriter</h1>
+            <div class="subtitle">E-commerce Content Generator 2026</div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab(0)">Generator</button>
+            <button class="tab" onclick="switchTab(1)">Guide</button>
+            <button class="tab" onclick="switchTab(2)">Templates</button>
+            <button class="tab" onclick="switchTab(3)">Advanced</button>
+            <button class="tab" onclick="switchTab(4)">E-commerce</button>
+            <button class="tab" onclick="switchTab(5)">AI Workflow</button>
+            <button class="tab" onclick="switchTab(6)">Platforms</button>
+            <button class="tab" onclick="switchTab(7)">Tools</button>
+            <button class="tab" onclick="switchTab(8)">Strategy</button>
+            <button class="tab" onclick="switchTab(9)">Psychology</button>
+        </div>
+
+        <!-- AI Generator Tab -->
+        <div class="tab-content active">
+            <div class="section">
+                <label>Product Name</label>
+                <input type="text" id="productName" placeholder="e.g., Wireless Earbuds Pro">
+            </div>
+
+            <div class="section">
+                <label>Product Category</label>
+                <select id="category">
+                    <option value="electronics">Electronics</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="home">Home & Living</option>
+                    <option value="beauty">Beauty & Wellness</option>
+                    <option value="sports">Sports & Fitness</option>
+                    <option value="food">Food & Beverage</option>
+                </select>
+            </div>
+
+            <div class="section">
+                <label>Key Features (comma-separated)</label>
+                <textarea id="features" placeholder="e.g., 40hr battery, noise cancellation, waterproof"></textarea>
+            </div>
+
+            <div class="section">
+                <label>Target Audience</label>
+                <input type="text" id="audience" placeholder="e.g., Tech-savvy millennials">
+            </div>
+
+            <div class="section">
+                <label>Tone</label>
+                <select id="tone">
+                    <option value="professional">Professional</option>
+                    <option value="casual">Casual & Friendly</option>
+                    <option value="luxury">Luxury & Premium</option>
+                    <option value="playful">Playful & Fun</option>
+                    <option value="minimal">Minimal & Direct</option>
+                </select>
+            </div>
+
+            <button class="btn" onclick="generateCopy()">Generate Product Copy</button>
+
+            <div id="output"></div>
+        </div>
+
+        <!-- Guide Tab -->
+        <div class="tab-content">
+            <div class="guide-card">
+                <h3>1. Know Your Audience</h3>
+                <p>Effective product copy speaks directly to customer needs and pain points.</p>
+                <ul>
+                    <li>Research demographics & psychographics</li>
+                    <li>Identify customer pain points</li>
+                    <li>Use language your audience uses</li>
+                    <li>Address objections proactively</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h3>2. Focus on Benefits, Not Features</h3>
+                <p>Transform technical specs into meaningful outcomes.</p>
+                <ul>
+                    <li>Feature: "10,000mAh battery"</li>
+                    <li>Benefit: "3 days of uninterrupted use"</li>
+                    <li>Always answer "So what?" for each feature</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h3>3. Create Urgency & Scarcity</h3>
+                <p>Drive conversions with psychological triggers.</p>
+                <ul>
+                    <li>Limited-time offers</li>
+                    <li>Stock availability notices</li>
+                    <li>Exclusive access messaging</li>
+                    <li>Social proof (reviews, sales count)</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h3>4. SEO Optimization</h3>
+                <p>Balance human appeal with search visibility.</p>
+                <ul>
+                    <li>Include primary keywords naturally</li>
+                    <li>Use long-tail keywords in descriptions</li>
+                    <li>Optimize meta titles & descriptions</li>
+                    <li>Structure with H1, H2 tags</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h3>5. Use Power Words</h3>
+                <p>Trigger emotion and action with strategic vocabulary.</p>
+                <ul>
+                    <li>Transform, Revolutionary, Exclusive</li>
+                    <li>Instant, Guaranteed, Proven</li>
+                    <li>Premium, Elite, Professional</li>
+                    <li>Effortless, Seamless, Intuitive</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h3>6. Clear Call-to-Action</h3>
+                <p>Guide customers toward conversion.</p>
+                <ul>
+                    <li>Use action verbs (Get, Grab, Unlock)</li>
+                    <li>Create urgency (Today, Now, Limited)</li>
+                    <li>Reduce friction (Free shipping, Easy returns)</li>
+                    <li>A/B test different CTAs</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Templates Tab -->
+        <div class="tab-content">
+            <div class="section">
+                <label>Quick Templates</label>
+                <div class="template-grid">
+                    <button class="template-btn" onclick="loadTemplate('hero')">Hero Section</button>
+                    <button class="template-btn" onclick="loadTemplate('bullet')">Bullet Points</button>
+                    <button class="template-btn" onclick="loadTemplate('story')">Brand Story</button>
+                    <button class="template-btn" onclick="loadTemplate('comparison')">Comparison</button>
+                    <button class="template-btn" onclick="loadTemplate('urgency')">Urgency Copy</button>
+                    <button class="template-btn" onclick="loadTemplate('guarantee')">Guarantee</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <label>Template Preview</label>
+                <div id="templateOutput" class="output">Select a template above to preview</div>
+            </div>
+        </div>
+
+        <!-- Advanced Techniques Tab -->
+        <div class="tab-content">
+            <div class="guide-card">
+                <h3>1. A/B Testing Framework</h3>
+                <p>Systematically test and optimize copy elements for maximum conversions.</p>
+                <ul>
+                    <li><strong>What to Test:</strong> Headlines, CTAs, product descriptions, bullet points, images</li>
+                    <li><strong>Single Variable:</strong> Test one element at a time for clear results</li>
+                    <li><strong>Sample Size:</strong> Run tests until statistical significance (95% confidence)</li>
+                    <li><strong>Common Winners:</strong> Specific numbers beat vague claims, questions engage better, urgency increases CTR by 20-30%</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Example Test:</strong>
+Version A: "Premium Wireless Earbuds"
+Version B: "40-Hour Battery Wireless Earbuds"
+Result: Specific benefit (Version B) typically wins by 15-25%
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>2. Emotional Triggers Guide</h3>
+                <p>Leverage psychology to drive purchasing decisions.</p>
+                <ul>
+                    <li><strong>FOMO (Fear of Missing Out):</strong> "Only 3 left" / "Sale ends tonight" / "Join 50,000+ customers"</li>
+                    <li><strong>Social Proof:</strong> Reviews, testimonials, "bestseller" badges, user counts</li>
+                    <li><strong>Loss Aversion:</strong> "Don't miss out" beats "Get yours" (2x more effective)</li>
+                    <li><strong>Desire/Aspiration:</strong> Paint the transformation, not just the product</li>
+                    <li><strong>Trust/Safety:</strong> Guarantees, certifications, secure payment badges</li>
+                    <li><strong>Exclusivity:</strong> "Members only" / "Limited edition" / "By invitation"</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Emotional Hierarchy:</strong>
+1. Fear/Loss (strongest)
+2. Social belonging
+3. Aspiration/desire
+4. Trust/security
+5. Curiosity
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>3. Storytelling Framework</h3>
+                <p>Transform product descriptions into compelling narratives.</p>
+                <ul>
+                    <li><strong>Hero's Journey:</strong> Customer = hero, Product = tool, Problem = villain</li>
+                    <li><strong>Before/After/Bridge:</strong> Paint current pain → Show transformation → Product as bridge</li>
+                    <li><strong>Origin Story:</strong> "We created this because..." builds authenticity</li>
+                    <li><strong>Customer Success Stories:</strong> Real results > features (3-5x conversion lift)</li>
+                    <li><strong>Sensory Details:</strong> "Buttery-soft leather" beats "high-quality materials"</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Story Template:</strong>
+"Tired of [pain point]? Meet [product name].
+We designed it after [origin story].
+Now [customer type] can [transformation].
+Join [social proof number] who've already [result]."
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>4. Conversion Optimization Tactics</h3>
+                <p>Strategic copy placement and hierarchy for maximum impact.</p>
+                <ul>
+                    <li><strong>Above-the-Fold:</strong> Value prop + primary CTA visible without scrolling</li>
+                    <li><strong>F-Pattern Layout:</strong> Lead with benefit, supporting details follow</li>
+                    <li><strong>Inverted Pyramid:</strong> Most important info first, details after</li>
+                    <li><strong>White Space:</strong> 40% white space increases comprehension by 20%</li>
+                    <li><strong>Scannable Format:</strong> Bullets, bold, short paragraphs (3 lines max)</li>
+                    <li><strong>CTA Placement:</strong> Primary CTA, repeat after benefits, final urgency CTA</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Optimal Structure:</strong>
+[Headline - 6-10 words]
+[Sub-headline - benefit statement]
+[Primary CTA]
+[3-5 bullet benefits]
+[Social proof]
+[Secondary CTA + guarantee]
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>5. Voice & Brand Consistency</h3>
+                <p>Maintain cohesive brand personality across all copy.</p>
+                <ul>
+                    <li><strong>Brand Voice Dimensions:</strong> Funny↔Serious, Formal↔Casual, Respectful↔Irreverent, Enthusiastic↔Matter-of-fact</li>
+                    <li><strong>Word Bank:</strong> Create approved/banned word lists for consistency</li>
+                    <li><strong>Tone Shifts:</strong> Adjust for context (error messages = empathetic, sales = energetic)</li>
+                    <li><strong>Grammar Rules:</strong> Oxford comma? Contractions? Numbers spelled out?</li>
+                    <li><strong>Competitor Differentiation:</strong> Analyze 3 competitors, identify white space</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Voice Audit Checklist:</strong>
+□ Consistent pronouns (we/you/I)?
+□ Sentence length variation?
+□ Active voice dominant?
+□ Brand adjectives present?
+□ Competitor overlap minimal?
+                </div>
+            </div>
+
+            <div class="section">
+                <button class="btn" onclick="openAdvancedTool()">🧪 Try Interactive A/B Test Tool</button>
+            </div>
+        </div>
+
+        <!-- E-commerce Specific Tab -->
+        <div class="tab-content">
+            <div class="guide-card">
+                <h3>1. Product Title SEO Formula</h3>
+                <p>Optimize titles for search engines and conversions simultaneously.</p>
+                <ul>
+                    <li><strong>Formula:</strong> [Brand] + [Product Type] + [Key Feature] + [Benefit] + [Target]</li>
+                    <li><strong>Character Limits:</strong> Google: 60 chars, Amazon: 200 chars, Shopify: 70 optimal</li>
+                    <li><strong>Keyword Placement:</strong> Primary keyword in first 5 words (65% more clicks)</li>
+                    <li><strong>Numbers Work:</strong> Include size, quantity, or specs when relevant</li>
+                    <li><strong>Avoid:</strong> ALL CAPS, special characters (!@#), keyword stuffing</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Examples:</strong>
+✗ Bad: "Amazing Headphones!!!"
+✓ Good: "Sony WH-1000XM5 Wireless Noise Cancelling Headphones - 30Hr Battery"
+
+✗ Bad: "Best Coffee Maker Ever"
+✓ Good: "Ninja 12-Cup Programmable Coffee Maker with Glass Carafe - Black"
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>2. Amazon Listing Optimization</h3>
+                <p>Master Amazon's A9 algorithm for maximum visibility and sales.</p>
+                <ul>
+                    <li><strong>Title:</strong> 150-200 chars, front-load keywords, include brand + key specs</li>
+                    <li><strong>Bullet Points:</strong> 5 bullets, 200 chars each, start with benefit caps</li>
+                    <li><strong>Backend Keywords:</strong> 250 bytes max, no repeats, misspellings OK, use synonyms</li>
+                    <li><strong>A+ Content:</strong> Comparison charts, lifestyle images, brand story modules</li>
+                    <li><strong>Description:</strong> 2000 chars, HTML allowed, repeat keywords naturally</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Bullet Point Formula:</strong>
+"[BENEFIT IN CAPS] - Detailed explanation of feature and specific outcome for customer"
+
+Example:
+"EXTENDED 40-HOUR BATTERY - Work, travel, and play for days without charging. Quick charge gives 5 hours in just 10 minutes."
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>3. Email Marketing Copy</h3>
+                <p>Drive revenue with strategic email campaigns.</p>
+                <ul>
+                    <li><strong>Subject Lines:</strong> 6-10 words, personalization increases opens 26%, urgency/curiosity blend</li>
+                    <li><strong>Preview Text:</strong> Complement subject (not repeat), 40-50 chars, add value</li>
+                    <li><strong>Abandoned Cart:</strong> Send within 1hr (69% recovery), include image, one-click checkout</li>
+                    <li><strong>Welcome Series:</strong> 3-5 emails, 20% discount email 1, education email 2-3, testimonial email 4</li>
+                    <li><strong>Win-Back:</strong> "We miss you" + exclusive 25% off, last chance angle</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Abandoned Cart Sequence:</strong>
+Email 1 (1hr): "You forgot something! [Product]" - Gentle reminder
+Email 2 (24hr): "Still thinking? Here's 10% off" - Incentive
+Email 3 (3 days): "Last chance - Your cart expires soon" - Urgency
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>4. Landing Page Structure</h3>
+                <p>High-converting landing page copy architecture.</p>
+                <ul>
+                    <li><strong>Above Fold:</strong> Clear headline + sub-headline + hero image + primary CTA (visible in 3 seconds)</li>
+                    <li><strong>F-Pattern Flow:</strong> Users scan left-to-right, top-to-bottom in F shape</li>
+                    <li><strong>Sections Order:</strong> Hero → Benefits → Social Proof → Features → FAQ → Final CTA</li>
+                    <li><strong>CTA Strategy:</strong> Minimum 3 CTAs (hero, mid-page, bottom), different copy each</li>
+                    <li><strong>Length:</strong> Complex products = long-form (2000+ words), simple = short (500 words)</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Optimal Landing Page Map:</strong>
+1. Hero (benefit headline + CTA)
+2. Problem agitation (3 pain points)
+3. Solution (3-5 key benefits)
+4. Social proof (reviews/testimonials)
+5. Feature breakdown (with visuals)
+6. FAQ (address objections)
+7. Final CTA (urgency/guarantee)
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>5. Mobile-First Copywriting</h3>
+                <p>Optimize for mobile users (70%+ of e-commerce traffic).</p>
+                <ul>
+                    <li><strong>Headline:</strong> 30-40 chars max (full visibility on mobile)</li>
+                    <li><strong>Paragraphs:</strong> 2-3 sentences max, double line breaks between</li>
+                    <li><strong>Bullets:</strong> Front-load benefits, 40 chars per bullet for scanability</li>
+                    <li><strong>Buttons:</strong> 44x44px minimum, finger-friendly spacing</li>
+                    <li><strong>Load Speed:</strong> Every 1sec delay = 7% conversion loss, optimize images</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Mobile vs Desktop Copy:</strong>
+Desktop: "Experience premium comfort with our ergonomically-designed chair"
+Mobile: "Comfort that lasts all day"
+
+Desktop = descriptive, Mobile = punchy
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>6. Shopify Copy Best Practices</h3>
+                <p>Optimize Shopify stores for conversions and SEO.</p>
+                <ul>
+                    <li><strong>Meta Title:</strong> 55-60 chars, include primary keyword + brand</li>
+                    <li><strong>Meta Description:</strong> 150-160 chars, call-to-action + benefit</li>
+                    <li><strong>Product Descriptions:</strong> 300+ words for SEO, scannable format</li>
+                    <li><strong>Collection Pages:</strong> 200+ word intro with keywords, benefit-focused</li>
+                    <li><strong>Alt Text:</strong> Descriptive + keyword (accessibility + SEO)</li>
+                    <li><strong>URL Slugs:</strong> Keep short, include primary keyword, use hyphens</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Shopify SEO Checklist:</strong>
+□ H1 tag = Product title
+□ Keywords in first 100 words
+□ Internal links to related products
+□ Schema markup enabled
+□ Image optimization (<100KB)
+□ Mobile-responsive preview tested
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>7. Social Commerce Copy</h3>
+                <p>Platform-specific strategies for social selling.</p>
+                <ul>
+                    <li><strong>Instagram Shopping:</strong> Captions 125 chars (before "more"), emojis for breaks, 3-5 hashtags max</li>
+                    <li><strong>TikTok Shop:</strong> Hook in first 3 seconds, conversational tone, trend-jacking language</li>
+                    <li><strong>Facebook Shops:</strong> Detailed descriptions (500+ words), answer common questions</li>
+                    <li><strong>Pinterest:</strong> Keyword-rich pins, "how-to" language, vertical images (2:3 ratio)</li>
+                    <li><strong>Common Rule:</strong> Native content > ads, UGC outperforms branded 4:1</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Platform Copy Styles:</strong>
+Instagram: Aesthetic + aspirational
+TikTok: Entertaining + authentic
+Facebook: Informative + community
+Pinterest: Inspirational + actionable
+                </div>
+            </div>
+
+            <div class="section">
+                <button class="btn" onclick="generatePlatformCopy()">🛒 Generate Platform-Specific Copy</button>
+            </div>
+        </div>
+
+        <!-- AI Content Workflow Tab -->
+        <div class="tab-content">
+            <div class="guide-card">
+                <h3>1. Prompt Engineering Tutorial</h3>
+                <p>Master AI prompts for high-quality e-commerce copy output.</p>
+                <ul>
+                    <li><strong>Be Specific:</strong> "Write a 50-word product description" vs "Write about this product"</li>
+                    <li><strong>Provide Context:</strong> Include brand voice, target audience, tone, key features</li>
+                    <li><strong>Use Examples:</strong> Show 1-2 examples of desired output style</li>
+                    <li><strong>Set Constraints:</strong> Word count, format (bullets/paragraphs), keywords to include</li>
+                    <li><strong>Iterate:</strong> Use "make it more [X]" or "add [Y]" to refine outputs</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Weak Prompt:</strong>
+"Write about wireless earbuds"
+
+<strong>Strong Prompt:</strong>
+"Write a 75-word Shopify product description for 'SonicWave Pro' wireless earbuds. Target audience: fitness enthusiasts aged 25-40. Tone: energetic and technical. Include these features: 12hr battery, IPX7 waterproof, touch controls. Focus on benefits over features. End with urgency CTA."
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>2. Content Editing Checklist</h3>
+                <p>Transform AI outputs into brand-perfect copy.</p>
+                <ul>
+                    <li><strong>Brand Voice Alignment:</strong> Does it sound like YOUR brand? Adjust tone/language</li>
+                    <li><strong>Fact Check:</strong> Verify all claims, specs, features (AI can hallucinate)</li>
+                    <li><strong>Remove Generic Fluff:</strong> Cut "cutting-edge," "revolutionary," "game-changing"</li>
+                    <li><strong>Add Specificity:</strong> Replace vague claims with numbers, data, concrete benefits</li>
+                    <li><strong>Humanize:</strong> Add personality, contractions, conversational flow</li>
+                    <li><strong>SEO Optimize:</strong> Naturally insert keywords without stuffing</li>
+                    <li><strong>Read Aloud:</strong> If it sounds robotic, rewrite awkward sections</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Before (AI Output):</strong>
+"This cutting-edge device revolutionizes your experience with state-of-the-art technology."
+
+<strong>After (Edited):</strong>
+"Get 40 hours of playtime with quick-charge technology. Just 10 minutes gives you 5 hours of music."
+
+✓ Specific numbers
+✓ Clear benefit
+✓ Natural language
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>3. Batch Content Creation Workflow</h3>
+                <p>Scale production for multiple product descriptions efficiently.</p>
+                <ul>
+                    <li><strong>Step 1 - Prepare Data:</strong> Spreadsheet with product name, features, specs, category</li>
+                    <li><strong>Step 2 - Create Template Prompt:</strong> "[Product name] is a [category] with [features]. Write..."</li>
+                    <li><strong>Step 3 - Batch Process:</strong> Use same prompt structure, swap variables</li>
+                    <li><strong>Step 4 - Quality Control:</strong> Random sample 20%, check consistency</li>
+                    <li><strong>Step 5 - Bulk Edit:</strong> Find/replace common issues across all outputs</li>
+                    <li><strong>Time Savings:</strong> 100 descriptions = 2 hours (vs 20 hours manual)</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Batch Prompt Template:</strong>
+"Product: {{PRODUCT_NAME}}
+Category: {{CATEGORY}}
+Features: {{FEATURES}}
+Target: {{AUDIENCE}}
+
+Write a 60-word description in [BRAND TONE]. Include these keywords: {{KEYWORDS}}. Format: 1 benefit headline, 3 bullet points, 1 CTA."
+
+Then swap variables per product.
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>4. Multi-Language Adaptation</h3>
+                <p>Localize copy for global markets with cultural nuance.</p>
+                <ul>
+                    <li><strong>Translation vs Localization:</strong> Adapt idioms, humor, cultural references (not literal)</li>
+                    <li><strong>Length Variation:</strong> German +30% longer, Chinese -20% shorter than English</li>
+                    <li><strong>Cultural Sensitivity:</strong> Colors, numbers, symbols have different meanings</li>
+                    <li><strong>Currency & Units:</strong> $ → €/¥, inches → cm, dates format (MM/DD vs DD/MM)</li>
+                    <li><strong>SEO Keywords:</strong> Research local search terms (not direct translation)</li>
+                    <li><strong>Tone Shifts:</strong> Formal languages (German, Japanese) vs casual (US English)</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Localization Example:</strong>
+US: "Score a home run with these headphones!"
+UK: "Brilliant sound quality you'll love"
+Japan: "Professional-grade audio for discerning listeners"
+
+✓ Same product, culturally adapted messaging
+✓ Sports metaphor → Direct benefit → Status appeal
+                </div>
+            </div>
+
+            <div class="section" style="background: #fef3c7; padding: 3%; border-radius: 8px; margin-bottom: 3%;">
+                <h3 style="font-size: 12px; margin-bottom: 2%; color: #92400e;">⚡ AI Prompt Builder</h3>
+                <label>Product Type</label>
+                <input type="text" id="aiProductType" placeholder="e.g., Wireless Earbuds">
+                
+                <label>Key Features</label>
+                <input type="text" id="aiFeatures" placeholder="e.g., 40hr battery, noise canceling">
+                
+                <label>Target Audience</label>
+                <select id="aiAudience">
+                    <option value="general consumers">General Consumers</option>
+                    <option value="tech enthusiasts">Tech Enthusiasts</option>
+                    <option value="fitness users">Fitness Users</option>
+                    <option value="professionals">Professionals</option>
+                    <option value="budget shoppers">Budget Shoppers</option>
+                    <option value="luxury buyers">Luxury Buyers</option>
+                </select>
+                
+                <label>Tone</label>
+                <select id="aiTone">
+                    <option value="professional">Professional</option>
+                    <option value="casual and friendly">Casual & Friendly</option>
+                    <option value="energetic">Energetic</option>
+                    <option value="luxury">Luxury</option>
+                    <option value="technical">Technical</option>
+                </select>
+                
+                <label>Word Count</label>
+                <select id="aiWordCount">
+                    <option value="50">50 words (Short)</option>
+                    <option value="100">100 words (Medium)</option>
+                    <option value="150">150 words (Long)</option>
+                    <option value="250">250 words (Detailed)</option>
+                </select>
+                
+                <button class="btn" onclick="buildPrompt()" style="background: #d97706;">🤖 Build AI Prompt</button>
+                <div id="promptOutput"></div>
+            </div>
+
+            <div class="section" style="background: #dbeafe; padding: 3%; border-radius: 8px;">
+                <h3 style="font-size: 12px; margin-bottom: 2%; color: #1e40af;">📊 Batch Processing Simulator</h3>
+                <label>Number of Products</label>
+                <input type="number" id="batchCount" placeholder="e.g., 50" value="10">
+                
+                <label>Upload CSV (Product Data)</label>
+                <input type="file" id="csvUpload" accept=".csv" style="font-size: 11px; padding: 2%;">
+                
+                <button class="btn" onclick="simulateBatch()" style="background: #2563eb;">⚡ Simulate Batch Process</button>
+                <div id="batchOutput"></div>
+            </div>
+        </div>
+
+        <!-- Content Strategy & Planning Tab -->
+        <div class="tab-content">
+            <div class="guide-card">
+                <h3>1. SEO Keyword Research</h3>
+                <p>Find and implement keywords that drive organic traffic and conversions.</p>
+                <ul>
+                    <li><strong>Keyword Types:</strong> Primary (main product), Secondary (features), Long-tail (specific queries)</li>
+                    <li><strong>Search Intent:</strong> Informational ("how to"), Commercial ("best X"), Transactional ("buy X")</li>
+                    <li><strong>Tools:</strong> Google Keyword Planner (free), Ahrefs, SEMrush, Ubersuggest</li>
+                    <li><strong>Keyword Density:</strong> 1-2% optimal, natural placement over stuffing</li>
+                    <li><strong>LSI Keywords:</strong> Latent Semantic Indexing - related terms Google expects (e.g., "wireless earbuds" → "bluetooth", "battery life", "noise canceling")</li>
+                    <li><strong>Placement Priority:</strong> Title > First 100 words > Headers > Alt text > Meta description</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Keyword Research Process:</strong>
+1. Brainstorm seed keywords (3-5 main terms)
+2. Use tools to find volume + competition
+3. Analyze top 10 competitors for each keyword
+4. Select 1 primary + 3-5 secondary keywords per page
+5. Map keywords to specific pages/products
+
+<strong>Example Keyword Strategy:</strong>
+Product: Wireless Earbuds
+• Primary: "wireless earbuds" (22,000/mo, high competition)
+• Secondary: "noise cancelling earbuds" (8,100/mo)
+• Long-tail: "wireless earbuds 40 hour battery" (590/mo, low competition)
+• LSI: bluetooth headphones, true wireless, charging case, waterproof earbuds
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>2. Competitor Analysis Framework</h3>
+                <p>Systematically analyze competitor copy to find opportunities and differentiation.</p>
+                <ul>
+                    <li><strong>Identify Competitors:</strong> Direct (same product) + Indirect (solving same problem differently)</li>
+                    <li><strong>What to Analyze:</strong> Headlines, value props, CTAs, product descriptions, review themes</li>
+                    <li><strong>Pricing Strategy:</strong> How they position price (premium vs budget), discount frequency</li>
+                    <li><strong>Unique Angles:</strong> What benefits they emphasize, what they ignore (your opportunity)</li>
+                    <li><strong>Voice & Tone:</strong> Professional, casual, technical, playful - find white space</li>
+                    <li><strong>Review Mining:</strong> What customers love/hate - address pain points competitors miss</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Competitor Analysis Checklist:</strong>
+□ Top 5 competitors identified
+□ Their primary value propositions documented
+□ Price positioning mapped (premium/mid/budget)
+□ Common benefits they all emphasize
+□ Gaps they're NOT addressing (your opportunity)
+□ Their review themes (positive + negative)
+□ Unique differentiators for YOUR product
+
+<strong>Example Analysis:</strong>
+Competitor A: Emphasizes "studio-quality sound"
+Competitor B: Focuses on "all-day comfort"
+Competitor C: Highlights "sweatproof for workouts"
+
+Your Angle: "40-hour battery + instant pairing" (unaddressed benefit)
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>3. Brand Voice Development</h3>
+                <p>Create a consistent, authentic voice that resonates with your audience.</p>
+                <ul>
+                    <li><strong>Voice Dimensions:</strong> Formal ↔ Casual, Serious ↔ Funny, Respectful ↔ Irreverent, Matter-of-fact ↔ Enthusiastic</li>
+                    <li><strong>Brand Personality:</strong> Choose 3-5 adjectives (e.g., "bold, authentic, playful")</li>
+                    <li><strong>Vocabulary Guidelines:</strong> Words to use, words to avoid, industry jargon policy</li>
+                    <li><strong>Grammar Rules:</strong> Contractions allowed? Oxford comma? Em-dashes vs periods?</li>
+                    <li><strong>Tone Variation:</strong> Adjust for context (error messages = empathetic, sales = energetic)</li>
+                    <li><strong>Testing Consistency:</strong> Read 3 random pages - do they sound like same brand?</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Brand Voice Template:</strong>
+
+We are: [3-5 personality adjectives]
+We are NOT: [3-5 opposite traits]
+
+We sound like: [Compare to known brand or person]
+Voice dimensions:
+• Formality: [1-10 scale, 1=very casual, 10=very formal]
+• Humor: [1-10 scale, 1=serious, 10=very funny]
+• Enthusiasm: [1-10 scale, 1=matter-of-fact, 10=very enthusiastic]
+
+Always use: [Approved words/phrases]
+Never use: [Banned words/phrases]
+Contractions: [Yes/No]
+Exclamation points: [Sparingly/Frequently/Never]
+
+<strong>Example Brand Voices:</strong>
+Nike: Bold, motivational, direct ("Just Do It")
+Innocent Smoothies: Playful, quirky, conversational
+Apple: Minimal, sophisticated, aspirational
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>4. Content Calendar Planning</h3>
+                <p>Strategic planning for seasonal campaigns, launches, and evergreen content.</p>
+                <ul>
+                    <li><strong>Seasonal Planning:</strong> Plan 60-90 days ahead for holidays, sales events, seasons</li>
+                    <li><strong>Product Launches:</strong> Teaser (2 weeks) → Reveal (launch day) → Post-launch (2 weeks)</li>
+                    <li><strong>Evergreen Content:</strong> How-to guides, buying guides, FAQ pages (always relevant)</li>
+                    <li><strong>Content Mix:</strong> 40% promotional, 30% educational, 30% entertaining</li>
+                    <li><strong>Key Dates:</strong> Black Friday, Prime Day, Valentine's, Mother's/Father's Day, industry events</li>
+                    <li><strong>Repurposing:</strong> Blog post → Email → Social → Product description variations</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Annual Content Planning:</strong>
+
+Q1 (Jan-Mar):
+• New Year sales, Valentine's Day, Spring prep
+• Keywords: "new year deals", "valentine gifts", "spring refresh"
+
+Q2 (Apr-Jun):
+• Mother's/Father's Day, graduation, summer prep
+• Keywords: "mother's day gift", "summer essentials"
+
+Q3 (Jul-Sep):
+• Prime Day, Back to School, Labor Day
+• Keywords: "back to school", "prime day deals"
+
+Q4 (Oct-Dec):
+• Halloween, Black Friday, Cyber Monday, Christmas
+• Keywords: "black friday", "holiday gifts", "christmas deals"
+
+<strong>Launch Sequence Template:</strong>
+Week 1-2: Teasers ("Coming soon", build anticipation)
+Launch Day: Full reveal (product benefits, limited offer)
+Week 3-4: Social proof (reviews, testimonials, UGC)
+Week 5-6: Last chance messaging (urgency, scarcity)
+                </div>
+            </div>
+
+            <!-- Interactive Keyword Research Tool -->
+            <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3%; border-radius: 8px; margin-bottom: 3%;">
+                <h3 style="color: white; font-size: 13px; margin-bottom: 2%;">🔍 Keyword Research Assistant</h3>
+                <label style="color: white;">Product Category</label>
+                <input type="text" id="keywordCategory" placeholder="e.g., wireless earbuds">
+                <label style="color: white;">Target Audience</label>
+                <input type="text" id="keywordAudience" placeholder="e.g., fitness enthusiasts">
+                <button class="btn" onclick="generateKeywords()" style="background: #5b21b6;">Generate Keyword Ideas</button>
+                <div id="keywordOutput"></div>
+            </div>
+
+            <!-- Interactive Competitor Analysis Tool -->
+            <div class="section" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 3%; border-radius: 8px; margin-bottom: 3%;">
+                <h3 style="color: white; font-size: 13px; margin-bottom: 2%;">🎯 Competitor Analysis Template</h3>
+                <label style="color: white;">Your Product</label>
+                <input type="text" id="yourProduct" placeholder="e.g., Premium Wireless Earbuds">
+                <label style="color: white;">Competitor 1</label>
+                <input type="text" id="competitor1" placeholder="e.g., AirPods Pro">
+                <label style="color: white;">Competitor 2</label>
+                <input type="text" id="competitor2" placeholder="e.g., Sony WH-1000XM5">
+                <label style="color: white;">Competitor 3</label>
+                <input type="text" id="competitor3" placeholder="e.g., Bose QuietComfort">
+                <button class="btn" onclick="generateCompetitorAnalysis()" style="background: #e91e63;">Generate Analysis Framework</button>
+                <div id="competitorOutput"></div>
+            </div>
+
+            <!-- Interactive Brand Voice Builder -->
+            <div class="section" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 3%; border-radius: 8px;">
+                <h3 style="color: white; font-size: 13px; margin-bottom: 2%;">🎨 Brand Voice Builder</h3>
+                <label style="color: white;">Brand Personality (3 adjectives)</label>
+                <input type="text" id="brandPersonality" placeholder="e.g., Bold, Authentic, Playful">
+                <label style="color: white;">Target Emotion</label>
+                <select id="targetEmotion" style="background: white;">
+                    <option value="trust">Trust & Reliability</option>
+                    <option value="excitement">Excitement & Energy</option>
+                    <option value="aspiration">Aspiration & Luxury</option>
+                    <option value="comfort">Comfort & Familiarity</option>
+                    <option value="innovation">Innovation & Progress</option>
+                </select>
+                <label style="color: white;">Formality Level</label>
+                <input type="range" id="formalityLevel" min="1" max="10" value="5" 
+                       oninput="document.getElementById('formalityValue').innerText = this.value"
+                       style="width: 100%; margin-bottom: 1%;">
+                <div style="color: white; font-size: 11px; text-align: center; margin-bottom: 2%;">
+                    <span>Very Casual</span>
+                    <span style="float: right;">Very Formal</span>
+                    <div style="clear: both; margin-top: 1%;"><strong>Current: <span id="formalityValue">5</span></strong></div>
+                </div>
+                <button class="btn" onclick="generateBrandVoice()" style="background: #0288d1;">Generate Voice Guidelines</button>
+                <div id="brandVoiceOutput"></div>
+            </div>
+        </div>
+
+        <!-- Conversion Psychology Tab -->
+        <div class="tab-content">
+            <div class="guide-card">
+                <h3>1. Pricing Psychology</h3>
+                <p>Use cognitive biases to make prices more appealing and increase conversions.</p>
+                <ul>
+                    <li><strong>Charm Pricing ($99 vs $100):</strong> Ending in 9 increases sales by 24% (left-digit effect)</li>
+                    <li><strong>Price Anchoring:</strong> Show original price ($199) then sale ($149) - 89% more effective</li>
+                    <li><strong>Decoy Pricing:</strong> 3 tiers - make middle option look best (most choose it)</li>
+                    <li><strong>Bundle Pricing:</strong> "Get 3 for $99" beats "Each $35" - perceived value 40% higher</li>
+                    <li><strong>Remove Dollar Signs:</strong> "99" vs "$99" - dollar signs trigger pain response</li>
+                    <li><strong>Payment Plans:</strong> "$25/month" vs "$300/year" - monthly feels 30% cheaper</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Pricing Strategy Examples:</strong>
+
+Bad: "Our premium plan costs $100.00 per month"
+Good: "Premium Plan - 99/month" (no $ sign, .99 ending)
+
+Bad: "$500 headphones"
+Good: "Regularly $699, Now Just $499" (anchoring + charm pricing)
+
+Decoy Pricing Example:
+• Basic: $29 (few features) ← Nobody buys
+• Pro: $49 (most features) ← EVERYONE buys this
+• Enterprise: $99 (all features) ← Makes Pro look cheap
+
+Bundle Example:
+"Buy 3 Get 20% Off - Just 79 each" (vs "$99 each, save $20 per item")
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>2. Objection Handling</h3>
+                <p>Anticipate and address customer doubts before they become conversion blockers.</p>
+                <ul>
+                    <li><strong>Common Objections:</strong> Price, Quality, Trust, Timing, Fit/Size, Shipping</li>
+                    <li><strong>FAQ Strategy:</strong> Address top 10 objections directly on product page</li>
+                    <li><strong>Guarantee Language:</strong> "60-day money-back guarantee" removes risk (30% conversion boost)</li>
+                    <li><strong>Social Proof Counter:</strong> "15,283 customers trust us" beats generic "many customers"</li>
+                    <li><strong>Comparison Charts:</strong> "Us vs Them" shows why you're better without naming competitors</li>
+                    <li><strong>Video Proof:</strong> Unboxing, testimonials, how-it-works videos reduce returns 35%</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Objection Handling Templates:</strong>
+
+Objection: "Too expensive"
+Handle: "Premium materials cost more upfront, but last 5x longer. Total cost over 5 years: $200 vs $800 for cheap alternatives."
+
+Objection: "Will it fit me?"
+Handle: "Free returns + exchanges. 98% of customers find their perfect fit. Size guide shows exact measurements."
+
+Objection: "Can I trust this brand?"
+Handle: "11,000+ 5-star reviews • BBB A+ rating • Featured in Forbes, TechCrunch • 60-day money-back guarantee"
+
+Objection: "Need it fast"
+Handle: "Ships same day if ordered by 2pm EST. Free 2-day shipping on orders over $50. Arrives before [date]."
+
+Objection: "Is quality really that good?"
+Handle: "Lifetime warranty • Made in USA • Premium materials • Watch our quality test video"
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>3. Scarcity & Urgency Tactics</h3>
+                <p>Create FOMO (fear of missing out) ethically to drive immediate action.</p>
+                <ul>
+                    <li><strong>Stock Scarcity:</strong> "Only 3 left in stock" increases urgency by 226%</li>
+                    <li><strong>Time Scarcity:</strong> "Sale ends in 4h 23m" - countdown timers boost conversions 9%</li>
+                    <li><strong>Limited Edition:</strong> "Only 500 made" - exclusivity drives 47% higher AOV</li>
+                    <li><strong>Social Proof Urgency:</strong> "47 people viewing this now" creates competitive urgency</li>
+                    <li><strong>Seasonal Scarcity:</strong> "Holiday special - won't return until next year"</li>
+                    <li><strong>Ethical Use:</strong> Only use REAL scarcity - fake urgency damages trust long-term</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Scarcity Copy Examples:</strong>
+
+Stock Scarcity:
+"⚠️ Low Stock Alert: Only 4 units left at this price"
+"🔥 Selling Fast: 127 sold in the last 24 hours"
+
+Time Scarcity:
+"⏰ Flash Sale Ends Tonight at Midnight EST"
+"Last Chance: 20% OFF expires in [countdown: 04:23:15]"
+
+Limited Edition:
+"Numbered Edition: #247 of 500"
+"This colorway won't be restocked - final batch"
+
+Social Urgency:
+"🔴 LIVE: 34 people are viewing this item right now"
+"128 in carts • Only 15 in stock"
+
+<strong>What NOT to Do:</strong>
+✗ "Sale ends tonight" (every night)
+✗ "Only 2 left!" (always shows 2)
+✗ Fake countdown timers that reset
+→ Use real scarcity or risk losing trust permanently
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>4. Social Proof Techniques</h3>
+                <p>Leverage psychology of conformity to build trust and drive conversions.</p>
+                <ul>
+                    <li><strong>Review Quantity:</strong> Display total review count (10,000+ reviews = 270% higher trust)</li>
+                    <li><strong>Star Ratings:</strong> 4.5-4.7 stars optimal (5.0 looks fake, below 4.3 hurts conversions)</li>
+                    <li><strong>Photo Reviews:</strong> Customer photos with reviews increase trust 4.6x</li>
+                    <li><strong>Expert Endorsements:</strong> "Featured in Forbes" / "Award Winner" adds credibility</li>
+                    <li><strong>User Count:</strong> "Join 50,000+ satisfied customers" (specific numbers > vague claims)</li>
+                    <li><strong>Celebrity/Influencer:</strong> "As seen on @influencer (1.2M followers)" drives 3x traffic</li>
+                    <li><strong>Trust Badges:</strong> BBB, SSL secure, money-back guarantee icons increase checkout 17%</li>
+                </ul>
+                <div class="output" style="margin-top: 2%; font-size: 10px;">
+<strong>Social Proof Hierarchy (Most to Least Powerful):</strong>
+
+1. Personal Connection: "Your friend Sarah bought this" (Facebook integration)
+2. Expert Authority: "Recommended by Dr. [Name], Harvard Professor"
+3. Celebrity Endorsement: "Used by [Celebrity Name]"
+4. Crowd Approval: "15,000+ 5-star reviews"
+5. Certifications: "FDA Approved • GMP Certified"
+6. Media Features: "As Seen On: Forbes, CNN, TechCrunch"
+7. Numbers: "Trusted by 1M+ customers worldwide"
+
+<strong>Social Proof Copy Examples:</strong>
+
+Reviews:
+"★★★★★ 4.8/5 from 12,483 verified buyers"
+"See why 94% of customers would recommend to a friend"
+
+Expert:
+"Recommended by 3 out of 4 dermatologists"
+"Winner: Best Innovation Award 2026 - Tech Magazine"
+
+User Count:
+"Join 1.2 million people who switched to [Brand]"
+"Over 500,000 units sold since launch"
+
+Trust Signals:
+"✓ BBB A+ Rating ✓ 60-Day Guarantee ✓ Secure Checkout ✓ 24/7 Support"
+                </div>
+            </div>
+
+            <!-- Interactive Pricing Calculator -->
+            <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3%; border-radius: 8px; margin-bottom: 3%;">
+                <h3 style="color: white; font-size: 13px; margin-bottom: 2%;">💰 Pricing Psychology Calculator</h3>
+                <label style="color: white;">Original Price</label>
+                <input type="number" id="originalPrice" placeholder="e.g., 100" value="100">
+                <label style="color: white;">Discount %</label>
+                <input type="number" id="discountPercent" placeholder="e.g., 20" value="20">
+                <label style="color: white;">Pricing Strategy</label>
+                <select id="pricingStrategy" style="background: white;">
+                    <option value="charm">Charm Pricing (.99 ending)</option>
+                    <option value="anchor">Anchor Pricing (show original)</option>
+                    <option value="bundle">Bundle Pricing (3 for X)</option>
+                    <option value="subscription">Subscription (monthly)</option>
+                </select>
+                <button class="btn" onclick="calculatePricing()" style="background: #5b21b6;">Generate Pricing Copy</button>
+                <div id="pricingOutput"></div>
+            </div>
+
+            <!-- Objection Handler Tool -->
+            <div class="section" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 3%; border-radius: 8px; margin-bottom: 3%;">
+                <h3 style="color: white; font-size: 13px; margin-bottom: 2%;">🛡️ Objection Handler</h3>
+                <label style="color: white;">Common Objection</label>
+                <select id="objectionType" style="background: white;">
+                    <option value="price">Too Expensive</option>
+                    <option value="trust">Don't Trust Brand</option>
+                    <option value="quality">Quality Concerns</option>
+                    <option value="timing">Not Right Time</option>
+                    <option value="fit">Won't Fit/Work for Me</option>
+                    <option value="shipping">Shipping Concerns</option>
+                </select>
+                <label style="color: white;">Your Product Type</label>
+                <input type="text" id="objectionProduct" placeholder="e.g., Premium headphones" style="background: white; color: #000;">
+                <button class="btn" onclick="generateObjectionResponse()" style="background: #e91e63;">Generate Response</button>
+                <div id="objectionOutput"></div>
+            </div>
+
+            <!-- Scarcity Message Generator -->
+            <div class="section" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); padding: 3%; border-radius: 8px;">
+                <h3 style="color: white; font-size: 13px; margin-bottom: 2%;">⏰ Scarcity Message Generator</h3>
+                <label style="color: white;">Scarcity Type</label>
+                <select id="scarcityType" style="background: white;">
+                    <option value="stock">Low Stock</option>
+                    <option value="time">Time-Limited Sale</option>
+                    <option value="limited">Limited Edition</option>
+                    <option value="seasonal">Seasonal Only</option>
+                </select>
+                <label style="color: white;">Stock Level (if applicable)</label>
+                <input type="number" id="stockLevel" placeholder="e.g., 5" value="5" style="background: white; color: #000;">
+                <label style="color: white;">Hours Until Deadline (if applicable)</label>
+                <input type="number" id="hoursLeft" placeholder="e.g., 24" value="24" style="background: white; color: #000;">
+                <button class="btn" onclick="generateScarcityCopy()" style="background: linear-gradient(135deg, #ff6b6b, #feca57);">Generate Scarcity Copy</button>
+                <div id="scarcityOutput"></div>
+            </div>
+        </div>
+
+        <!-- Interactive Tools Tab -->
+        <div class="tab-content">
+            <!-- Headline Analyzer Tool -->
+            <div class="section" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 3%; border-radius: 8px; margin-bottom: 3%;">
+                <h3 style="color: white; font-size: 13px; margin-bottom: 2%;">📊 Headline Analyzer</h3>
+                <label style="color: white;">Enter Your Headline</label>
+                <input type="text" id="headlineInput" placeholder="e.g., Premium Wireless Earbuds with 40-Hour Battery">
+                <button class="btn" onclick="analyzeHeadline()" style="background: #e91e63;">Analyze Headline</button>
+                <div id="headlineScore"></div>
+            </div>
+
+            <!-- Readability Checker Tool -->
+            <div class="section" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 3%; border-radius: 8px; margin-bottom: 3%;">
+                <h3 style="color: white; font-size: 13px; margin-bottom: 2%;">📖 Readability Checker</h3>
+                <label style="color: white;">Paste Your Copy</label>
+                <textarea id="readabilityInput" placeholder="Paste your product description here..." style="min-height: 100px;"></textarea>
+                <button class="btn" onclick="checkReadability()" style="background: #0288d1;">Check Readability</button>
+                <div id="readabilityScore"></div>
+            </div>
+
+            <!-- Power Words Library Tool -->
+            <div class="section" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); padding: 3%; border-radius: 8px; margin-bottom: 3%;">
+                <h3 style="color: white; font-size: 13px; margin-bottom: 2%;">⚡ Power Words Library</h3>
+                <label style="color: white;">Select Category</label>
+                <select id="powerWordCategory" onchange="showPowerWords()" style="background: white;">
+                    <option value="">Choose category...</option>
+                    <option value="urgency">Urgency & Scarcity</option>
+                    <option value="trust">Trust & Safety</option>
+                    <option value="emotion">Emotional Triggers</option>
+                    <option value="value">Value & Quality</option>
+                    <option value="exclusivity">Exclusivity</option>
+                    <option value="action">Action & CTA</option>
+                </select>
+                <div id="powerWordsOutput"></div>
+            </div>
+
+            <!-- Copy Length Calculator Tool -->
+            <div class="section" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 3%; border-radius: 8px;">
+                <h3 style="color: #1e293b; font-size: 13px; margin-bottom: 2%;">📏 Copy Length Calculator</h3>
+                <label>Select Platform</label>
+                <select id="platformLength">
+                    <option value="amazon_title">Amazon Title</option>
+                    <option value="amazon_bullet">Amazon Bullet Point</option>
+                    <option value="shopify_title">Shopify Title</option>
+                    <option value="shopify_meta">Shopify Meta Description</option>
+                    <option value="instagram">Instagram Caption</option>
+                    <option value="tiktok">TikTok Description</option>
+                    <option value="google_title">Google Shopping Title</option>
+                    <option value="email_subject">Email Subject Line</option>
+                </select>
+                <label>Your Copy</label>
+                <textarea id="copyLengthInput" placeholder="Enter or paste your copy..." style="min-height: 80px;"></textarea>
+                <button class="btn" onclick="calculateLength()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">Calculate Length</button>
+                <div id="lengthOutput"></div>
+            </div>
+        </div>
+
+        <!-- Platform-Specific Tab -->
+        <div class="tab-content">
+            <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3%; border-radius: 8px; margin-bottom: 3%;">
+                <h3 style="color: white; font-size: 13px; margin-bottom: 2%;">📱 Select Your Platform</h3>
+                <select id="platformSelector" onchange="showPlatformGuide()" style="background: white;">
+                    <option value="">Choose platform...</option>
+                    <option value="amazon">Amazon</option>
+                    <option value="shopify">Shopify</option>
+                    <option value="etsy">Etsy</option>
+                    <option value="ebay">eBay</option>
+                    <option value="woocommerce">WooCommerce</option>
+                    <option value="instagram">Instagram Shopping</option>
+                    <option value="tiktok">TikTok Shop</option>
+                    <option value="facebook">Facebook Shops</option>
+                    <option value="pinterest">Pinterest</option>
+                    <option value="google">Google Shopping</option>
+                </select>
+            </div>
+
+            <div id="platformContent">
+                <div class="guide-card">
+                    <h3 style="text-align: center; color: #64748b;">👆 Select a platform above to see specific guidelines</h3>
+                </div>
+            </div>
+        </div>
+    <script>
+        function switchTab(index) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+                contents[i].classList.toggle('active', i === index);
+            });
+        }
+
+        function showPlatformGuide() {
+            const platform = document.getElementById('platformSelector').value;
+            const content = document.getElementById('platformContent');
+
+            const guides = {
+                amazon: `
+                    <div class="guide-card">
+                        <h3>📦 Amazon Listing Optimization</h3>
+                        <p><strong>Character Limits & Requirements</strong></p>
+                        <ul>
+                            <li><strong>Title:</strong> 200 chars max (150-180 optimal), must include: Brand + Product + Key Features + Size/Color</li>
+                            <li><strong>Bullet Points:</strong> 5 bullets, 500 chars each (200-250 optimal), start with BENEFIT in CAPS</li>
+                            <li><strong>Description:</strong> 2000 chars, HTML allowed, repeat keywords 3-5 times naturally</li>
+                            <li><strong>Backend Keywords:</strong> 249 bytes total, no punctuation, use synonyms & misspellings</li>
+                            <li><strong>A+ Content:</strong> 5-7 modules, comparison charts, lifestyle images, brand story</li>
+                        </ul>
+                    </div>
+                    <div class="guide-card">
+                        <h3>🎯 Amazon A9 Algorithm Tips</h3>
+                        <ul>
+                            <li>Keywords in first 80 chars of title = 3x weight</li>
+                            <li>Sales velocity > keyword density (focus on conversions)</li>
+                            <li>Images: 1000x1000px minimum, white background for main image</li>
+                            <li>Price competitively within 10% of category average</li>
+                            <li>Get 15+ reviews ASAP for initial ranking boost</li>
+                        </ul>
+                    </div>
+                    <div class="output" style="font-size: 10px;">
+<strong>Amazon Title Formula:</strong>
+[Brand] - [Product Type] - [Key Feature 1] - [Key Feature 2] - [Size/Color/Quantity] - [Benefit]
+
+Example:
+"SoundPro Wireless Earbuds - Bluetooth 5.3 - 40Hr Battery Life - Noise Cancelling - Waterproof IPX7 - Black"
+
+<strong>Bullet Point Example:</strong>
+"MARATHON 40-HOUR BATTERY - Work, travel, and play for an entire week without charging. Quick charge technology gives you 5 hours of playtime in just 10 minutes, perfect for busy professionals on the go."
+                    </div>
+                `,
+                shopify: `
+                    <div class="guide-card">
+                        <h3>🛍️ Shopify Store Optimization</h3>
+                        <p><strong>SEO & Technical Requirements</strong></p>
+                        <ul>
+                            <li><strong>Product Title:</strong> 70 chars optimal for Google, include primary keyword + brand</li>
+                            <li><strong>Meta Title:</strong> 55-60 chars, front-load keyword, add brand at end</li>
+                            <li><strong>Meta Description:</strong> 150-160 chars, include CTA + benefit + keyword</li>
+                            <li><strong>Description:</strong> 300+ words for SEO, above-fold = 100 words, scannable format</li>
+                            <li><strong>URL Slug:</strong> /product-keyword-here (short, hyphenated, no special chars)</li>
+                            <li><strong>Alt Text:</strong> Descriptive + keyword for each image</li>
+                        </ul>
+                    </div>
+                    <div class="guide-card">
+                        <h3>💰 Conversion Optimization</h3>
+                        <ul>
+                            <li>Add trust badges (secure checkout, money-back guarantee)</li>
+                            <li>Use countdown timers for limited offers (20-30% conversion boost)</li>
+                            <li>Display "X people viewing" for social proof</li>
+                            <li>Offer free shipping threshold (increases AOV by 30%)</li>
+                            <li>Add product videos (80% higher conversion rate)</li>
+                            <li>Enable reviews with photos (4.6x more trustworthy)</li>
+                        </ul>
+                    </div>
+                    <div class="output" style="font-size: 10px;">
+<strong>Shopify Description Structure:</strong>
+
+[Headline - Benefit-driven, 8-10 words]
+
+[Opening paragraph - Problem/solution, 50 words]
+
+Why Choose [Product]:
+• [Benefit 1 with specific detail]
+• [Benefit 2 with specific detail]
+• [Benefit 3 with specific detail]
+
+[Technical specs section]
+
+[Guarantee + CTA]
+
+Example Meta Description:
+"Get 40-hour battery wireless earbuds with noise cancellation. Free shipping over $50. Shop SoundPro now!"
+                    </div>
+                `,
+                etsy: `
+                    <div class="guide-card">
+                        <h3>🎨 Etsy Listing Optimization</h3>
+                        <p><strong>Character Limits & Best Practices</strong></p>
+                        <ul>
+                            <li><strong>Title:</strong> 140 chars, front-load keywords, natural language (no keyword stuffing)</li>
+                            <li><strong>Tags:</strong> 13 tags max, 20 chars each, use long-tail keywords, include synonyms</li>
+                            <li><strong>Description:</strong> No limit, but first 160 chars = meta description, tell story</li>
+                            <li><strong>About Section:</strong> Handmade story, process, materials, USP</li>
+                            <li><strong>Categories:</strong> Choose most specific category + attributes for visibility</li>
+                        </ul>
+                    </div>
+                    <div class="guide-card">
+                        <h3>✨ Etsy-Specific Strategies</h3>
+                        <ul>
+                            <li>Emphasize "handmade" or "vintage" credentials</li>
+                            <li>Tell your maker story (buyers pay 20% more for authenticity)</li>
+                            <li>Use lifestyle photos showing product in use</li>
+                            <li>Offer customization options (personalized = 40% higher sales)</li>
+                            <li>Include production time + shipping estimates upfront</li>
+                            <li>Use all 10 image slots (listings with 10 images sell 3x more)</li>
+                        </ul>
+                    </div>
+                    <div class="output" style="font-size: 10px;">
+<strong>Etsy Title Formula:</strong>
+[Primary Keyword] - [Descriptive Details] - [Occasion/Use] - [Material/Style]
+
+Example:
+"Handmade Leather Journal - Personalized Travel Notebook - Vintage Rustic Gift - Refillable"
+
+<strong>Description Opening:</strong>
+"Each journal is handcrafted in my Portland studio using premium Italian leather. I created this design after years of searching for the perfect travel companion..."
+                    </div>
+                `,
+                ebay: `
+                    <div class="guide-card">
+                        <h3>🔨 eBay Listing Optimization</h3>
+                        <p><strong>Character Limits & Requirements</strong></p>
+                        <ul>
+                            <li><strong>Title:</strong> 80 chars, keyword-dense, no promotional terms (no "WOW!" or "L@@K")</li>
+                            <li><strong>Subtitle:</strong> 55 chars optional (costs extra), use for secondary keywords</li>
+                            <li><strong>Description:</strong> No limit, HTML allowed, template-based for consistency</li>
+                            <li><strong>Item Specifics:</strong> Fill ALL fields (boosts visibility 20-30%)</li>
+                            <li><strong>Condition:</strong> Be accurate and detailed in description</li>
+                        </ul>
+                    </div>
+                    <div class="guide-card">
+                        <h3>💡 eBay Cassini Algorithm</h3>
+                        <ul>
+                            <li>Exact keyword matches in title = highest weight</li>
+                            <li>30-day sales history impacts ranking (velocity matters)</li>
+                            <li>Shipping speed preference (offer fast/free shipping)</li>
+                            <li>Seller rating + DSRs (detailed seller ratings) critical</li>
+                            <li>Use "Good 'Til Cancelled" for best visibility</li>
+                            <li>Competitive pricing (Best Match favors value)</li>
+                        </ul>
+                    </div>
+                    <div class="output" style="font-size: 10px;">
+<strong>eBay Title Formula:</strong>
+[Brand] [Model] [Key Features] [Specs] [Color/Size] [Condition]
+
+Example:
+"Sony WH-1000XM5 Wireless Noise Cancelling Headphones 30Hr Battery Black New"
+
+<strong>Best Practices:</strong>
+• Use numbers instead of words (40 not forty)
+• Include model numbers for electronics
+• Avoid special characters (#$%&)
+• Research competitors' titles in "Sold" listings
+• Add synonyms if space allows
+                    </div>
+                `,
+                woocommerce: `
+                    <div class="guide-card">
+                        <h3>🔧 WooCommerce Optimization</h3>
+                        <p><strong>SEO & Technical Setup</strong></p>
+                        <ul>
+                            <li><strong>Product Title:</strong> 70 chars optimal, H1 tag auto-generated</li>
+                            <li><strong>Short Description:</strong> 150-200 chars, appears above fold, key benefits only</li>
+                            <li><strong>Long Description:</strong> 300-500 words, detailed, keyword-optimized, scannable</li>
+                            <li><strong>Permalinks:</strong> Set to "Post name" structure, use keywords in URL</li>
+                            <li><strong>Schema Markup:</strong> Use SEO plugin (Yoast/Rank Math) for rich snippets</li>
+                        </ul>
+                    </div>
+                    <div class="guide-card">
+                        <h3>⚙️ WooCommerce-Specific Tips</h3>
+                        <ul>
+                            <li>Use product categories + tags for internal linking</li>
+                            <li>Enable product reviews (use Rich Snippets plugin)</li>
+                            <li>Add related products + upsells (increases AOV 25%)</li>
+                            <li>Optimize images (under 100KB, descriptive filenames)</li>
+                            <li>Use attributes for variations (color, size) - improves filtering</li>
+                            <li>Add FAQ schema to product pages (rich results)</li>
+                        </ul>
+                    </div>
+                    <div class="output" style="font-size: 10px;">
+<strong>WooCommerce Structure:</strong>
+
+Short Description (displayed prominently):
+"Professional wireless earbuds with 40-hour battery and active noise cancellation. Perfect for commuters and travelers."
+
+Long Description:
+[Detailed product info, benefits, specs]
+[Use H2/H3 headers for SEO]
+[Add bullet lists for features]
+[Include comparison table]
+[End with guarantee + CTA]
+                    </div>
+                `,
+                instagram: `
+                    <div class="guide-card">
+                        <h3>📸 Instagram Shopping Optimization</h3>
+                        <p><strong>Character Limits & Format</strong></p>
+                        <ul>
+                            <li><strong>Caption:</strong> 2,200 chars max, first 125 chars visible (hook here)</li>
+                            <li><strong>Product Tags:</strong> Max 5 per image, tag strategically in non-intrusive areas</li>
+                            <li><strong>Hashtags:</strong> 3-5 relevant hashtags (not 30), mix branded + niche</li>
+                            <li><strong>Bio Link:</strong> Update frequently to featured product/collection</li>
+                            <li><strong>Stories:</strong> Use stickers (polls, questions) to boost engagement</li>
+                        </ul>
+                    </div>
+                    <div class="guide-card">
+                        <h3>✨ Instagram Content Strategy</h3>
+                        <ul>
+                            <li>Lead with lifestyle shots (not product-on-white)</li>
+                            <li>User-generated content converts 5x better than branded</li>
+                            <li>Video content gets 38% more engagement than images</li>
+                            <li>Post when audience is active (check Insights)</li>
+                            <li>Use Instagram Reels for product demos (prioritized by algorithm)</li>
+                            <li>Collaborate with micro-influencers (1-10K followers = highest ROI)</li>
+                        </ul>
+                    </div>
+                    <div class="output" style="font-size: 10px;">
+<strong>Instagram Caption Formula:</strong>
+
+[Hook - First 125 chars, benefit/question]
+
+[Detailed description 2-3 sentences]
+
+[Social proof/testimonial if available]
+
+[Call-to-action]
+
+[Hashtags - 3-5 max]
+
+Example:
+"POV: You're on hour 8 of your flight and your earbuds are still going strong 🎧✈️
+
+40-hour battery means you can fly NYC to Tokyo without charging once. Plus noise cancellation so good, you'll forget there's a crying baby in row 12.
+
+Tap to shop + get 20% off today only 👆
+
+#TravelEssentials #WirelessEarbuds #TechGear"
+                    </div>
+                `,
+                tiktok: `
+                    <div class="guide-card">
+                        <h3>🎵 TikTok Shop Optimization</h3>
+                        <p><strong>Format & Best Practices</strong></p>
+                        <ul>
+                            <li><strong>Video Length:</strong> 15-60 seconds optimal (hook in first 3 seconds)</li>
+                            <li><strong>Product Title:</strong> 34 chars visible in feed, descriptive + keyword</li>
+                            <li><strong>Description:</strong> 150 chars max, conversational tone, include benefits</li>
+                            <li><strong>Hashtags:</strong> 3-5 hashtags, mix trending + niche (#TikTokMadeMeBuyIt)</li>
+                            <li><strong>Sound:</strong> Use trending audio for 10x reach (remix for product)</li>
+                        </ul>
+                    </div>
+                    <div class="guide-card">
+                        <h3>🔥 TikTok Content Strategy</h3>
+                        <ul>
+                            <li>Start with problem/pain point (relatable hook)</li>
+                            <li>Show product solving problem in 5-10 seconds</li>
+                            <li>Use on-screen text for sound-off viewing (85% watch muted)</li>
+                            <li>Authentic > polished (UGC-style performs best)</li>
+                            <li>Post 1-3x daily for algorithm favor</li>
+                            <li>Engage in comments within first hour (boosts reach)</li>
+                        </ul>
+                    </div>
+                    <div class="output" style="font-size: 10px;">
+<strong>TikTok Script Template:</strong>
+
+[0-3 sec] Hook: "If you commute, you NEED this"
+[3-8 sec] Problem: "Tired of dead earbuds?"
+[8-25 sec] Solution: Show product, demonstrate 40hr battery
+[25-35 sec] Proof: "I've used these daily for 2 weeks, still haven't charged"
+[35-45 sec] Urgency: "Sale ends tonight"
+[45-60 sec] CTA: "Link in bio 👆"
+
+Overlay Text:
+"40 HOURS?! 😱"
+"Best $89 I ever spent"
+"#TikTokMadeMeBuyIt"
+                    </div>
+                `,
+                facebook: `
+                    <div class="guide-card">
+                        <h3>👥 Facebook Shops Optimization</h3>
+                        <p><strong>Character Limits & Format</strong></p>
+                        <ul>
+                            <li><strong>Product Name:</strong> 100 chars, descriptive + keyword-rich</li>
+                            <li><strong>Description:</strong> 500-1000 chars, detailed, answer common questions</li>
+                            <li><strong>Post Copy:</strong> First 3 lines visible (90 chars), put value prop here</li>
+                            <li><strong>Checkout Message:</strong> 250 chars for order confirmation customization</li>
+                            <li><strong>Collections:</strong> Group products, write collection descriptions (200 chars)</li>
+                        </ul>
+                    </div>
+                    <div class="guide-card">
+                        <h3>📊 Facebook Commerce Strategy</h3>
+                        <ul>
+                            <li>Use Facebook Live for product launches (10x engagement)</li>
+                            <li>Respond to comments/messages within 15 min (algorithm boost)</li>
+                            <li>Create targeted posts for custom audiences</li>
+                            <li>Use Messenger for abandoned cart recovery (25% recovery rate)</li>
+                            <li>Run retargeting ads to product page visitors</li>
+                            <li>Enable reviews and respond to all feedback</li>
+                        </ul>
+                    </div>
+                    <div class="output" style="font-size: 10px;">
+<strong>Facebook Post Formula:</strong>
+
+[Hook - First 3 lines, 90 chars]
+Example: "Just dropped: The earbuds that last an entire WEEK on one charge 🔋"
+
+[See More section - Detailed info]
+"I've tested dozens of wireless earbuds, and these are the only ones that actually last 40 hours. Perfect for:
+✓ Long flights
+✓ Work-from-home all week
+✓ Gym rats
+✓ Forgetful chargers (me 🙋‍♀️)
+
+Plus they're on sale today - tap to shop!"
+
+[CTA]
+                    </div>
+                `,
+                pinterest: `
+                    <div class="guide-card">
+                        <h3>📌 Pinterest Shopping Optimization</h3>
+                        <p><strong>Format & Technical Requirements</strong></p>
+                        <ul>
+                            <li><strong>Pin Title:</strong> 100 chars, keyword-focused, descriptive</li>
+                            <li><strong>Pin Description:</strong> 500 chars, first 50-60 visible, keyword-rich</li>
+                            <li><strong>Image Size:</strong> 1000x1500px (2:3 ratio) optimal for feed</li>
+                            <li><strong>Board Name:</strong> 50 chars, use keywords + target audience</li>
+                            <li><strong>Rich Pins:</strong> Enable product Rich Pins for pricing/availability</li>
+                        </ul>
+                    </div>
+                    <div class="guide-card">
+                        <h3>🎯 Pinterest SEO Strategy</h3>
+                        <ul>
+                            <li>Use "how to" language (Pinterest = search engine)</li>
+                            <li>Add text overlay to images (50% of top pins have text)</li>
+                            <li>Pin consistently (5-10 new pins daily)</li>
+                            <li>Use vertical images only (horizontal gets less reach)</li>
+                            <li>Create multiple pins per product (different angles/styles)</li>
+                            <li>Optimize for seasonal keywords 45-60 days ahead</li>
+                        </ul>
+                    </div>
+                    <div class="output" style="font-size: 10px;">
+<strong>Pinterest Pin Formula:</strong>
+
+Title: "Best Wireless Earbuds for Travel - 40 Hour Battery Life"
+
+Description:
+"Looking for wireless earbuds that last all week? These noise-cancelling headphones have 40 hours of battery life, perfect for long flights, commutes, and gym sessions. Waterproof design | Quick charge | Premium sound quality. #WirelessEarbuds #TravelEssentials #TechGadgets"
+
+Text Overlay on Image:
+"40 HOUR BATTERY"
+"Wireless Earbuds"
+"$89"
+                    </div>
+                `,
+                google: `
+                    <div class="guide-card">
+                        <h3>🔍 Google Shopping Optimization</h3>
+                        <p><strong>Feed Requirements & Best Practices</strong></p>
+                        <ul>
+                            <li><strong>Title:</strong> 150 chars max (70 optimal), front-load brand + keywords</li>
+                            <li><strong>Description:</strong> 5,000 chars max (500-1000 optimal), no promotional text</li>
+                            <li><strong>GTIN:</strong> Required for new products (UPC/EAN/ISBN)</li>
+                            <li><strong>Product Type:</strong> Use Google's taxonomy (most specific category)</li>
+                            <li><strong>Custom Labels:</strong> 5 custom labels for campaign organization</li>
+                        </ul>
+                    </div>
+                    <div class="guide-card">
+                        <h3>⚡ Google Shopping Performance Tips</h3>
+                        <ul>
+                            <li>High-quality images (min 800x800px, white background)</li>
+                            <li>Competitive pricing (monitor competitors weekly)</li>
+                            <li>Use negative keywords to filter irrelevant traffic</li>
+                            <li>Optimize for mobile (70% of clicks are mobile)</li>
+                            <li>Update inventory daily (out-of-stock = ad disapproval)</li>
+                            <li>Use product ratings (increases CTR by 17%)</li>
+                        </ul>
+                    </div>
+                    <div class="output" style="font-size: 10px;">
+<strong>Google Shopping Title Formula:</strong>
+[Brand] | [Product Type] | [Key Features] | [Model/SKU] | [Color/Size]
+
+Example:
+"SoundPro | Wireless Noise Cancelling Earbuds | 40Hr Battery Bluetooth 5.3 | WH-1000XM5 | Black"
+
+<strong>Description Best Practices:</strong>
+• First sentence = key benefits
+• Include specific specs (battery life, weight, dimensions)
+• Mention compatible devices/use cases
+• No ALL CAPS or excessive punctuation!!!
+• Include warranty/guarantee info
+• End with brand differentiator
+                    </div>
+                `
+            };
+
+            if (platform && guides[platform]) {
+                content.innerHTML = guides[platform];
+            } else {
+                content.innerHTML = '<div class="guide-card"><h3 style="text-align: center; color: #64748b;">👆 Select a platform above to see specific guidelines</h3></div>';
+            }
+        }
+
+        // Headline Analyzer Function
+        function analyzeHeadline() {
+            const headline = document.getElementById('headlineInput').value;
+            if (!headline) {
+                alert('Please enter a headline');
+                return;
+            }
+
+            const wordCount = headline.split(/\s+/).length;
+            const charCount = headline.length;
+            const hasNumber = /\d/.test(headline);
+            const hasEmoji = /[\u{1F300}-\u{1F9FF}]/u.test(headline);
+            const powerWords = ['amazing', 'exclusive', 'guaranteed', 'proven', 'revolutionary', 'ultimate', 'best', 'new', 'free', 'limited'];
+            const hasPowerWord = powerWords.some(word => headline.toLowerCase().includes(word));
+
+            let score = 0;
+            let feedback = [];
+
+            // Word count scoring (optimal: 6-10 words)
+            if (wordCount >= 6 && wordCount <= 10) {
+                score += 30;
+                feedback.push('✓ Optimal word count (6-10 words)');
+            } else if (wordCount < 6) {
+                score += 15;
+                feedback.push('⚠ Too short - add 1-2 more words for clarity');
+            } else {
+                score += 10;
+                feedback.push('⚠ Too long - shorten for better impact');
+            }
+
+            // Character count (optimal: 40-70 for most platforms)
+            if (charCount >= 40 && charCount <= 70) {
+                score += 25;
+                feedback.push('✓ Good character length');
+            } else {
+                score += 10;
+                feedback.push('⚠ Character count: ' + charCount + ' (optimal: 40-70)');
+            }
+
+            // Numbers increase engagement by 36%
+            if (hasNumber) {
+                score += 20;
+                feedback.push('✓ Contains numbers (boosts engagement)');
+            } else {
+                feedback.push('⚠ Add specific numbers for better impact');
+            }
+
+            // Power words
+            if (hasPowerWord) {
+                score += 15;
+                feedback.push('✓ Contains power words');
+            } else {
+                feedback.push('⚠ Consider adding power words (exclusive, proven, guaranteed)');
+            }
+
+            // Emoji check
+            if (hasEmoji) {
+                score += 10;
+                feedback.push('✓ Contains emoji (good for social)');
+            }
+
+            const grade = score >= 80 ? 'Excellent' : score >= 60 ? 'Good' : score >= 40 ? 'Fair' : 'Needs Work';
+            const color = score >= 80 ? '#10b981' : score >= 60 ? '#3b82f6' : score >= 40 ? '#f59e0b' : '#ef4444';
+
+            document.getElementById('headlineScore').innerHTML = `
+                <div class="output" style="margin-top: 2%;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2%;">
+                        <strong>Score: ${score}/100</strong>
+                        <span style="background: ${color}; color: white; padding: 2% 4%; border-radius: 4px; font-size: 11px;">${grade}</span>
+                    </div>
+                    <div style="font-size: 11px; line-height: 1.8;">
+                        ${feedback.map(f => `<div>${f}</div>`).join('')}
+                    </div>
+                    <div style="margin-top: 2%; padding-top: 2%; border-top: 1px solid #e2e8f0; font-size: 10px;">
+                        <strong>Stats:</strong> ${wordCount} words | ${charCount} characters
+                    </div>
+                </div>
+            `;
+        }
+
+        // Readability Checker Function
+        function checkReadability() {
+            const text = document.getElementById('readabilityInput').value;
+            if (!text) {
+                alert('Please enter text');
+                return;
+            }
+
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+            const words = text.split(/\s+/).filter(w => w.length > 0);
+            const syllables = words.reduce((count, word) => count + countSyllables(word), 0);
+
+            const avgWordsPerSentence = words.length / sentences.length;
+            const avgSyllablesPerWord = syllables / words.length;
+
+            // Flesch Reading Ease score
+            const fleschScore = 206.835 - (1.015 * avgWordsPerSentence) - (84.6 * avgSyllablesPerWord);
+            const fleschGrade = fleschScore >= 90 ? 'Very Easy' :
+                              fleschScore >= 80 ? 'Easy' :
+                              fleschScore >= 70 ? 'Fairly Easy' :
+                              fleschScore >= 60 ? 'Standard' :
+                              fleschScore >= 50 ? 'Fairly Difficult' :
+                              fleschScore >= 30 ? 'Difficult' : 'Very Difficult';
+
+            const gradeLevel = Math.round(0.39 * avgWordsPerSentence + 11.8 * avgSyllablesPerWord - 15.59);
+
+            let feedback = [];
+            if (avgWordsPerSentence > 20) {
+                feedback.push('⚠ Sentences too long - aim for 15-20 words per sentence');
+            } else {
+                feedback.push('✓ Good sentence length');
+            }
+
+            if (avgSyllablesPerWord > 1.8) {
+                feedback.push('⚠ Use simpler words for better clarity');
+            } else {
+                feedback.push('✓ Good word complexity');
+            }
+
+            if (gradeLevel > 10) {
+                feedback.push('⚠ Reading level too high - aim for 7th-8th grade');
+            } else {
+                feedback.push('✓ Appropriate reading level');
+            }
+
+            document.getElementById('readabilityScore').innerHTML = `
+                <div class="output" style="margin-top: 2%;">
+                    <div style="margin-bottom: 2%;">
+                        <strong>Flesch Reading Ease: ${fleschScore.toFixed(1)}</strong>
+                        <div style="font-size: 11px; color: #64748b;">${fleschGrade}</div>
+                    </div>
+                    <div style="margin-bottom: 2%;">
+                        <strong>Grade Level: ${gradeLevel > 0 ? gradeLevel : 1}</strong>
+                        <div style="font-size: 11px; color: #64748b;">Target: 7th-8th grade for e-commerce</div>
+                    </div>
+                    <div style="font-size: 11px; line-height: 1.8;">
+                        ${feedback.map(f => `<div>${f}</div>`).join('')}
+                    </div>
+                    <div style="margin-top: 2%; padding-top: 2%; border-top: 1px solid #e2e8f0; font-size: 10px;">
+                        <strong>Stats:</strong> ${words.length} words | ${sentences.length} sentences | ${avgWordsPerSentence.toFixed(1)} words/sentence
+                    </div>
+                </div>
+            `;
+        }
+
+        function countSyllables(word) {
+            word = word.toLowerCase().replace(/[^a-z]/g, '');
+            if (word.length <= 3) return 1;
+            word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+            word = word.replace(/^y/, '');
+            const matches = word.match(/[aeiouy]{1,2}/g);
+            return matches ? matches.length : 1;
+        }
+
+        // Power Words Library Function
+        function showPowerWords() {
+            const category = document.getElementById('powerWordCategory').value;
+            const powerWords = {
+                urgency: {
+                    title: 'Urgency & Scarcity Words',
+                    words: [
+                        { word: 'Limited', example: 'Limited stock available - order now!' },
+                        { word: 'Exclusive', example: 'Exclusive 48-hour sale for members' },
+                        { word: 'Hurry', example: 'Hurry - offer ends at midnight' },
+                        { word: 'Last Chance', example: 'Last chance to save 30%' },
+                        { word: 'Now', example: 'Buy now and save $50' },
+                        { word: 'Today Only', example: 'Today only - free shipping' },
+                        { word: 'Ending Soon', example: 'Sale ending soon - don\'t miss out' },
+                        { word: 'While Supplies Last', example: 'Get yours while supplies last' },
+                        { word: 'Final Hours', example: 'Final hours to claim your discount' },
+                        { word: 'Deadline', example: 'Deadline: Midnight EST tonight' }
+                    ]
+                },
+                trust: {
+                    title: 'Trust & Safety Words',
+                    words: [
+                        { word: 'Guaranteed', example: '100% satisfaction guaranteed' },
+                        { word: 'Certified', example: 'Certified organic ingredients' },
+                        { word: 'Proven', example: 'Proven results in 30 days' },
+                        { word: 'Tested', example: 'Tested by 10,000+ customers' },
+                        { word: 'Verified', example: 'Verified customer reviews' },
+                        { word: 'Authentic', example: 'Authentic leather craftsmanship' },
+                        { word: 'Official', example: 'Official licensed product' },
+                        { word: 'Secure', example: 'Secure checkout with SSL encryption' },
+                        { word: 'Protected', example: 'Protected by 2-year warranty' },
+                        { word: 'Trusted', example: 'Trusted by over 1 million users' }
+                    ]
+                },
+                emotion: {
+                    title: 'Emotional Trigger Words',
+                    words: [
+                        { word: 'Amazing', example: 'Amazing results in just 7 days' },
+                        { word: 'Incredible', example: 'Incredible value at this price' },
+                        { word: 'Transform', example: 'Transform your morning routine' },
+                        { word: 'Revolutionary', example: 'Revolutionary noise cancellation technology' },
+                        { word: 'Breakthrough', example: 'Breakthrough formula for weight loss' },
+                        { word: 'Stunning', example: 'Stunning 4K display quality' },
+                        { word: 'Powerful', example: 'Powerful performance meets elegance' },
+                        { word: 'Ultimate', example: 'The ultimate productivity tool' },
+                        { word: 'Life-Changing', example: 'Life-changing comfort and support' },
+                        { word: 'Obsessed', example: 'You\'ll be obsessed with the results' }
+                    ]
+                },
+                value: {
+                    title: 'Value & Quality Words',
+                    words: [
+                        { word: 'Premium', example: 'Premium Italian leather construction' },
+                        { word: 'Professional', example: 'Professional-grade audio quality' },
+                        { word: 'High-Quality', example: 'High-quality materials built to last' },
+                        { word: 'Luxury', example: 'Luxury comfort at an affordable price' },
+                        { word: 'Elite', example: 'Elite performance for serious athletes' },
+                        { word: 'Best', example: 'Best-in-class battery life' },
+                        { word: 'Superior', example: 'Superior sound clarity and depth' },
+                        { word: 'Advanced', example: 'Advanced AI noise reduction' },
+                        { word: 'Cutting-Edge', example: 'Cutting-edge technology' },
+                        { word: 'Top-Rated', example: 'Top-rated by industry experts' }
+                    ]
+                },
+                exclusivity: {
+                    title: 'Exclusivity Words',
+                    words: [
+                        { word: 'VIP', example: 'VIP early access for members' },
+                        { word: 'Members Only', example: 'Members only - special pricing' },
+                        { word: 'Invitation', example: 'You\'re invited to our exclusive sale' },
+                        { word: 'Select', example: 'Select customers receive 40% off' },
+                        { word: 'Private', example: 'Private sale - invitation required' },
+                        { word: 'Insider', example: 'Insider access to new products' },
+                        { word: 'Reserved', example: 'Reserved for our best customers' },
+                        { word: 'Elite Members', example: 'Elite members get free shipping' },
+                        { word: 'Limited Edition', example: 'Limited edition - only 500 made' },
+                        { word: 'First Access', example: 'Get first access before anyone else' }
+                    ]
+                },
+                action: {
+                    title: 'Action & CTA Words',
+                    words: [
+                        { word: 'Get', example: 'Get yours before they\'re gone' },
+                        { word: 'Claim', example: 'Claim your discount now' },
+                        { word: 'Unlock', example: 'Unlock premium features today' },
+                        { word: 'Discover', example: 'Discover the difference quality makes' },
+                        { word: 'Start', example: 'Start your free trial today' },
+                        { word: 'Join', example: 'Join 50,000+ satisfied customers' },
+                        { word: 'Grab', example: 'Grab this deal while it lasts' },
+                        { word: 'Try', example: 'Try risk-free for 60 days' },
+                        { word: 'Shop', example: 'Shop the collection now' },
+                        { word: 'Activate', example: 'Activate your membership today' }
+                    ]
+                }
+            };
+
+            if (category && powerWords[category]) {
+                const data = powerWords[category];
+                const html = `
+                    <div class="output" style="margin-top: 2%;">
+                        <h4 style="font-size: 12px; margin-bottom: 2%;">${data.title}</h4>
+                        ${data.words.map(item => `
+                            <div style="margin-bottom: 2%; padding: 2%; background: white; border-radius: 4px;">
+                                <strong style="color: #6366f1;">${item.word}</strong>
+                                <div style="font-size: 10px; color: #64748b; margin-top: 1%;">${item.example}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                document.getElementById('powerWordsOutput').innerHTML = html;
+            } else {
+                document.getElementById('powerWordsOutput').innerHTML = '';
+            }
+        }
+
+        // Copy Length Calculator Function
+        function calculateLength() {
+            const platform = document.getElementById('platformLength').value;
+            const copy = document.getElementById('copyLengthInput').value;
+
+            if (!copy) {
+                alert('Please enter your copy');
+                return;
+            }
+
+            const charCount = copy.length;
+            const wordCount = copy.split(/\s+/).filter(w => w.length > 0).length;
+
+            const limits = {
+                amazon_title: { name: 'Amazon Title', max: 200, optimal: '150-180', unit: 'characters' },
+                amazon_bullet: { name: 'Amazon Bullet Point', max: 500, optimal: '200-250', unit: 'characters' },
+                shopify_title: { name: 'Shopify Title', max: 70, optimal: '55-65', unit: 'characters' },
+                shopify_meta: { name: 'Shopify Meta Description', max: 160, optimal: '150-155', unit: 'characters' },
+                instagram: { name: 'Instagram Caption', max: 2200, optimal: '125-150', unit: 'characters (first line)' },
+                tiktok: { name: 'TikTok Description', max: 150, optimal: '100-140', unit: 'characters' },
+                google_title: { name: 'Google Shopping Title', max: 150, optimal: '70-100', unit: 'characters' },
+                email_subject: { name: 'Email Subject Line', max: 60, optimal: '40-50', unit: 'characters' }
+            };
+
+            const limit = limits[platform];
+            const percentage = (charCount / limit.max) * 100;
+            const status = charCount <= limit.max ? 
+                (charCount >= parseInt(limit.optimal.split('-')[0]) && charCount <= parseInt(limit.optimal.split('-')[1]) ? 
+                    '✓ Optimal' : '⚠ Within limit but not optimal') : 
+                '✗ Too long';
+            const color = charCount <= limit.max ? 
+                (charCount >= parseInt(limit.optimal.split('-')[0]) && charCount <= parseInt(limit.optimal.split('-')[1]) ? 
+                    '#10b981' : '#f59e0b') : 
+                '#ef4444';
+
+            document.getElementById('lengthOutput').innerHTML = `
+                <div class="output" style="margin-top: 2%;">
+                    <h4 style="font-size: 12px; margin-bottom: 2%;">${limit.name}</h4>
+                    <div style="margin-bottom: 2%;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1%;">
+                            <span style="font-size: 11px;">${charCount} / ${limit.max} ${limit.unit}</span>
+                            <span style="color: ${color}; font-weight: 600; font-size: 11px;">${status}</span>
+                        </div>
+                        <div style="width: 100%; height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
+                            <div style="width: ${Math.min(percentage, 100)}%; height: 100%; background: ${color}; transition: width 0.3s;"></div>
+                        </div>
+                    </div>
+                    <div style="font-size: 10px; color: #64748b;">
+                        <div><strong>Optimal Range:</strong> ${limit.optimal} ${limit.unit}</div>
+                        <div><strong>Word Count:</strong> ${wordCount} words</div>
+                        ${charCount > limit.max ? `<div style="color: #ef4444; margin-top: 1%;"><strong>⚠ Trim ${charCount - limit.max} characters</strong></div>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Keyword Research Generator
+        function generateKeywords() {
+            const category = document.getElementById('keywordCategory').value;
+            const audience = document.getElementById('keywordAudience').value;
+
+            if (!category) {
+                alert('Please enter a product category');
+                return;
+            }
+
+            const keywordTypes = {
+                primary: [
+                    `${category}`,
+                    `best ${category}`,
+                    `${category} 2026`,
+                    `top ${category}`
+                ],
+                secondary: [
+                    `affordable ${category}`,
+                    `premium ${category}`,
+                    `${category} reviews`,
+                    `${category} comparison`
+                ],
+                longtail: [
+                    `${category} for ${audience || 'professionals'}`,
+                    `best ${category} under $100`,
+                    `${category} with free shipping`,
+                    `buy ${category} online`
+                ],
+                lsi: [
+                    category.includes('wireless') ? 'bluetooth, cordless, rechargeable' : 'quality, durable, professional',
+                    audience ? `${audience} needs, ${audience} requirements` : 'user-friendly, easy to use',
+                    'reviews, ratings, testimonials',
+                    'warranty, guarantee, support'
+                ]
+            };
+
+            const output = `
+                <div class="output" style="margin-top: 2%;">
+                    <h4 style="font-size: 12px; margin-bottom: 2%;">Keyword Strategy for "${category}"</h4>
+                    
+                    <div style="margin-bottom: 2%;">
+                        <strong style="color: #6366f1;">Primary Keywords (High Volume):</strong>
+                        <div style="font-size: 10px; margin-top: 1%;">
+                            ${keywordTypes.primary.map(k => `<div style="padding: 1%; background: #f1f5f9; margin: 1% 0; border-radius: 4px;">• ${k}</div>`).join('')}
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 2%;">
+                        <strong style="color: #8b5cf6;">Secondary Keywords (Medium Volume):</strong>
+                        <div style="font-size: 10px; margin-top: 1%;">
+                            ${keywordTypes.secondary.map(k => `<div style="padding: 1%; background: #f1f5f9; margin: 1% 0; border-radius: 4px;">• ${k}</div>`).join('')}
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 2%;">
+                        <strong style="color: #10b981;">Long-tail Keywords (Low Competition):</strong>
+                        <div style="font-size: 10px; margin-top: 1%;">
+                            ${keywordTypes.longtail.map(k => `<div style="padding: 1%; background: #f1f5f9; margin: 1% 0; border-radius: 4px;">• ${k}</div>`).join('')}
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 2%;">
+                        <strong style="color: #f59e0b;">LSI Keywords (Related Terms):</strong>
+                        <div style="font-size: 10px; margin-top: 1%;">
+                            ${keywordTypes.lsi.map(k => `<div style="padding: 1%; background: #f1f5f9; margin: 1% 0; border-radius: 4px;">• ${k}</div>`).join('')}
+                        </div>
+                    </div>
+
+                    <div style="font-size: 10px; padding: 2%; background: #dbeafe; border-radius: 4px; margin-top: 2%;">
+                        <strong>💡 Implementation Tips:</strong><br>
+                        • Use 1 primary keyword per page/product<br>
+                        • Include 3-5 secondary keywords naturally<br>
+                        • Sprinkle LSI keywords throughout content<br>
+                        • Target long-tail keywords in blog posts<br>
+                        • Monitor rankings monthly and adjust
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('keywordOutput').innerHTML = output;
+        }
+
+        // Competitor Analysis Generator
+        function generateCompetitorAnalysis() {
+            const yourProduct = document.getElementById('yourProduct').value;
+            const comp1 = document.getElementById('competitor1').value;
+            const comp2 = document.getElementById('competitor2').value;
+            const comp3 = document.getElementById('competitor3').value;
+
+            if (!yourProduct || !comp1) {
+                alert('Please enter at least your product and one competitor');
+                return;
+            }
+
+            const competitors = [comp1, comp2, comp3].filter(c => c);
+
+            const output = `
+                <div class="output" style="margin-top: 2%;">
+                    <h4 style="font-size: 12px; margin-bottom: 2%;">Competitor Analysis Framework</h4>
+                    
+                    <div style="margin-bottom: 2%; padding: 2%; background: #f1f5f9; border-radius: 4px;">
+                        <strong>Your Product: ${yourProduct}</strong>
+                    </div>
+
+                    <table style="width: 100%; font-size: 10px; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: #e2e8f0;">
+                                <th style="padding: 2%; text-align: left; border: 1px solid #cbd5e1;">Criteria</th>
+                                ${competitors.map(c => `<th style="padding: 2%; text-align: left; border: 1px solid #cbd5e1;">${c}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 2%; border: 1px solid #cbd5e1;"><strong>Primary Value Prop</strong></td>
+                                ${competitors.map(() => `<td style="padding: 2%; border: 1px solid #cbd5e1;">[Research & fill]</td>`).join('')}
+                            </tr>
+                            <tr>
+                                <td style="padding: 2%; border: 1px solid #cbd5e1;"><strong>Price Range</strong></td>
+                                ${competitors.map(() => `<td style="padding: 2%; border: 1px solid #cbd5e1;">$[___]</td>`).join('')}
+                            </tr>
+                            <tr>
+                                <td style="padding: 2%; border: 1px solid #cbd5e1;"><strong>Key Features (Top 3)</strong></td>
+                                ${competitors.map(() => `<td style="padding: 2%; border: 1px solid #cbd5e1;">1. ___<br>2. ___<br>3. ___</td>`).join('')}
+                            </tr>
+                            <tr>
+                                <td style="padding: 2%; border: 1px solid #cbd5e1;"><strong>Brand Voice</strong></td>
+                                ${competitors.map(() => `<td style="padding: 2%; border: 1px solid #cbd5e1;">[Professional/Casual/Technical]</td>`).join('')}
+                            </tr>
+                            <tr>
+                                <td style="padding: 2%; border: 1px solid #cbd5e1;"><strong>Top Review Theme (+)</strong></td>
+                                ${competitors.map(() => `<td style="padding: 2%; border: 1px solid #cbd5e1;">[What customers love]</td>`).join('')}
+                            </tr>
+                            <tr>
+                                <td style="padding: 2%; border: 1px solid #cbd5e1;"><strong>Top Complaint (-)</strong></td>
+                                ${competitors.map(() => `<td style="padding: 2%; border: 1px solid #cbd5e1;">[What customers hate]</td>`).join('')}
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="margin-top: 2%; padding: 2%; background: #fef3c7; border-radius: 4px;">
+                        <strong>📊 Your Differentiation Opportunity:</strong><br>
+                        <textarea placeholder="Based on the analysis above, what unique angle can YOUR product take that competitors are missing?" 
+                                  style="width: 100%; min-height: 60px; margin-top: 1%; padding: 2%; border: 1px solid #fbbf24; border-radius: 4px; font-size: 10px;"></textarea>
+                    </div>
+
+                    <div style="font-size: 10px; padding: 2%; background: #dbeafe; border-radius: 4px; margin-top: 2%;">
+                        <strong>💡 Next Steps:</strong><br>
+                        1. Fill in each cell with actual competitor data<br>
+                        2. Identify patterns (what everyone emphasizes)<br>
+                        3. Find gaps (what NO ONE addresses)<br>
+                        4. Position your product in the white space<br>
+                        5. Test your unique angle with A/B testing
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('competitorOutput').innerHTML = output;
+        }
+
+        // Brand Voice Generator
+        function generateBrandVoice() {
+            const personality = document.getElementById('brandPersonality').value;
+            const emotion = document.getElementById('targetEmotion').value;
+            const formality = parseInt(document.getElementById('formalityLevel').value);
+
+            if (!personality) {
+                alert('Please enter brand personality traits');
+                return;
+            }
+
+            const traits = personality.split(',').map(t => t.trim());
+
+            const emotionGuidelines = {
+                trust: {
+                    words: ['reliable', 'proven', 'guaranteed', 'certified', 'secure'],
+                    avoid: ['risky', 'experimental', 'untested'],
+                    tone: 'Professional and reassuring'
+                },
+                excitement: {
+                    words: ['amazing', 'incredible', 'revolutionary', 'breakthrough', 'epic'],
+                    avoid: ['boring', 'standard', 'ordinary'],
+                    tone: 'Energetic and enthusiastic'
+                },
+                aspiration: {
+                    words: ['premium', 'exclusive', 'elite', 'luxury', 'sophisticated'],
+                    avoid: ['cheap', 'basic', 'budget'],
+                    tone: 'Elevated and aspirational'
+                },
+                comfort: {
+                    words: ['easy', 'simple', 'friendly', 'familiar', 'cozy'],
+                    avoid: ['complicated', 'difficult', 'harsh'],
+                    tone: 'Warm and approachable'
+                },
+                innovation: {
+                    words: ['cutting-edge', 'advanced', 'next-gen', 'smart', 'future'],
+                    avoid: ['outdated', 'traditional', 'old-fashioned'],
+                    tone: 'Forward-thinking and innovative'
+                }
+            };
+
+            const guide = emotionGuidelines[emotion];
+            const formalityDesc = formality <= 3 ? 'Very Casual (contractions, slang OK)' :
+                                 formality <= 6 ? 'Balanced (professional but friendly)' :
+                                 'Very Formal (no contractions, proper grammar)';
+
+            const output = `
+                <div class="output" style="margin-top: 2%;">
+                    <h4 style="font-size: 12px; margin-bottom: 2%;">Your Brand Voice Guidelines</h4>
+                    
+                    <div style="margin-bottom: 2%; padding: 2%; background: #f1f5f9; border-radius: 4px;">
+                        <strong>Brand Personality:</strong> ${traits.join(', ')}
+                    </div>
+
+                    <div style="margin-bottom: 2%; padding: 2%; background: #f1f5f9; border-radius: 4px;">
+                        <strong>Overall Tone:</strong> ${guide.tone}
+                    </div>
+
+                    <div style="margin-bottom: 2%; padding: 2%; background: #f1f5f9; border-radius: 4px;">
+                        <strong>Formality Level:</strong> ${formality}/10 - ${formalityDesc}
+                    </div>
+
+                    <div style="margin-bottom: 2%;">
+                        <strong style="color: #10b981;">✓ Always Use These Words:</strong>
+                        <div style="font-size: 10px; margin-top: 1%;">
+                            ${guide.words.map(w => `<span style="display: inline-block; background: #d1fae5; padding: 1% 2%; margin: 1%; border-radius: 4px;">${w}</span>`).join('')}
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 2%;">
+                        <strong style="color: #ef4444;">✗ Avoid These Words:</strong>
+                        <div style="font-size: 10px; margin-top: 1%;">
+                            ${guide.avoid.map(w => `<span style="display: inline-block; background: #fee2e2; padding: 1% 2%; margin: 1%; border-radius: 4px;">${w}</span>`).join('')}
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 2%; padding: 2%; background: #f1f5f9; border-radius: 4px;">
+                        <strong>Grammar Rules:</strong><br>
+                        <div style="font-size: 10px; margin-top: 1%;">
+                            • Contractions: ${formality <= 6 ? "Encouraged (we're, you'll, it's)" : "Avoid (use full words)"}<br>
+                            • Sentence length: ${formality <= 4 ? "Short & punchy (10-15 words)" : formality <= 7 ? "Medium (15-20 words)" : "Longer, complete (20+ words)"}<br>
+                            • Exclamation points: ${formality <= 4 ? "Use freely!" : formality <= 7 ? "Use sparingly" : "Rarely use"}<br>
+                            • Questions: ${formality <= 6 ? "Engage with questions" : "Use judiciously"}<br>
+                            • Pronouns: ${formality <= 5 ? "Use 'you' and 'we'" : "Third person when appropriate"}
+                        </div>
+                    </div>
+
+                    <div style="padding: 2%; background: #dbeafe; border-radius: 4px;">
+                        <strong>Voice Examples:</strong><br>
+                        <div style="font-size: 10px; margin-top: 1%;">
+                            <strong>Product Description:</strong><br>
+                            ${formality <= 4 
+                                ? `"You'll love how easy this is. Seriously, it's ${guide.words[0]} – and you can get started in seconds!"`
+                                : formality <= 7
+                                ? `"Experience ${guide.words[0]} performance with our latest model. Designed for ${traits[0].toLowerCase()} users who demand quality."`
+                                : `"This product delivers ${guide.words[0]} performance through advanced engineering. Customers will appreciate the attention to detail and superior craftsmanship."`
+                            }
+                        </div>
+                    </div>
+
+                    <div style="font-size: 10px; padding: 2%; background: #fef3c7; border-radius: 4px; margin-top: 2%;">
+                        <strong>💡 Consistency Tips:</strong><br>
+                        • Create a word bank of approved/banned terms<br>
+                        • Review 3 random pages monthly for consistency<br>
+                        • Train all copywriters with these guidelines<br>
+                        • Adjust tone for context (error messages = softer, sales = energetic)
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('brandVoiceOutput').innerHTML = output;
+        }
+
+        // Pricing Psychology Calculator
+        function calculatePricing() {
+            const original = parseFloat(document.getElementById('originalPrice').value);
+            const discount = parseFloat(document.getElementById('discountPercent').value);
+            const strategy = document.getElementById('pricingStrategy').value;
+
+            if (!original || original <= 0) {
+                alert('Please enter a valid original price');
+                return;
+            }
+
+            const salePrice = original * (1 - discount / 100);
+            let output = '';
+
+            switch(strategy) {
+                case 'charm':
+                    const charmPrice = Math.floor(salePrice) - 0.01;
+                    output = `
+                        <div class="output" style="margin-top: 2%;">
+                            <h4 style="font-size: 12px; margin-bottom: 2%;">Charm Pricing Strategy</h4>
+                            <div style="padding: 2%; background: white; border-radius: 4px; margin-bottom: 2%;">
+                                <div style="font-size: 24px; color: #6366f1; font-weight: bold;">${charmPrice.toFixed(2)}</div>
+                                <div style="font-size: 10px; color: #64748b;">24% more likely to convert vs rounded price</div>
+                            </div>
+                            <div style="font-size: 11px;">
+                                <strong>Copy Options:</strong><br>
+                                • "Now just ${charmPrice.toFixed(2)}"<br>
+                                • "Special price: ${Math.floor(charmPrice)}.${(charmPrice % 1).toFixed(2).slice(2)}"<br>
+                                • "Get yours for only ${charmPrice.toFixed(2)}" (no $ sign version: "${charmPrice.toFixed(2)}")
+                            </div>
+                        </div>
+                    `;
+                    break;
+
+                case 'anchor':
+                    const anchorPrice = Math.ceil(salePrice) - 0.01;
+                    const savings = original - anchorPrice;
+                    const savingsPercent = ((savings / original) * 100).toFixed(0);
+                    output = `
+                        <div class="output" style="margin-top: 2%;">
+                            <h4 style="font-size: 12px; margin-bottom: 2%;">Anchor Pricing Strategy</h4>
+                            <div style="padding: 2%; background: white; border-radius: 4px; margin-bottom: 2%;">
+                                <div style="text-decoration: line-through; color: #64748b; font-size: 14px;">${original.toFixed(2)}</div>
+                                <div style="font-size: 24px; color: #ef4444; font-weight: bold;">${anchorPrice.toFixed(2)}</div>
+                                <div style="font-size: 11px; color: #10b981;">Save ${savings.toFixed(2)} (${savingsPercent}%)</div>
+                            </div>
+                            <div style="font-size: 11px;">
+                                <strong>Copy Options:</strong><br>
+                                • "Was ${original}, Now ${anchorPrice} - Save ${savingsPercent}%!"<br>
+                                • "<s>${original}</s> ${anchorPrice} (Limited Time)"<br>
+                                • "Regularly ${original}, Today Only ${anchorPrice}"
+                            </div>
+                        </div>
+                    `;
+                    break;
+
+                case 'bundle':
+                    const bundlePrice = (salePrice * 3) * 0.85; // 15% bundle discount
+                    const perItem = bundlePrice / 3;
+                    output = `
+                        <div class="output" style="margin-top: 2%;">
+                            <h4 style="font-size: 12px; margin-bottom: 2%;">Bundle Pricing Strategy</h4>
+                            <div style="padding: 2%; background: white; border-radius: 4px; margin-bottom: 2%;">
+                                <div style="font-size: 20px; color: #6366f1; font-weight: bold;">
+                                    Buy 3 for ${bundlePrice.toFixed(2)}
+                                </div>
+                                <div style="font-size: 11px; color: #64748b;">
+                                    Just ${perItem.toFixed(2)} each (normally ${salePrice.toFixed(2)})
+                                </div>
+                                <div style="font-size: 11px; color: #10b981; margin-top: 1%;">
+                                    Save ${((salePrice * 3) - bundlePrice).toFixed(2)} when you bundle!
+                                </div>
+                            </div>
+                            <div style="font-size: 11px;">
+                                <strong>Copy Options:</strong><br>
+                                • "Buy 3, Save 15% - Just ${bundlePrice.toFixed(2)}"<br>
+                                • "Family Pack: 3 for ${bundlePrice.toFixed(2)} (${perItem.toFixed(2)} each)"<br>
+                                • "Stock Up & Save: Get 3 at ${Math.floor(perItem)}.${((perItem % 1) * 100).toFixed(0)} each"
+                            </div>
+                        </div>
+                    `;
+                    break;
+
+                case 'subscription':
+                    const monthly = salePrice / 12;
+                    const yearlyTotal = salePrice;
+                    output = `
+                        <div class="output" style="margin-top: 2%;">
+                            <h4 style="font-size: 12px; margin-bottom: 2%;">Subscription Pricing Strategy</h4>
+                            <div style="padding: 2%; background: white; border-radius: 4px; margin-bottom: 2%;">
+                                <div style="font-size: 20px; color: #6366f1; font-weight: bold;">
+                                    ${monthly.toFixed(2)}/month
+                                </div>
+                                <div style="font-size: 11px; color: #64748b;">
+                                    vs ${yearlyTotal.toFixed(2)} paid annually
+                                </div>
+                                <div style="font-size: 11px; color: #10b981; margin-top: 1%;">
+                                    Feels 30% more affordable when shown monthly
+                                </div>
+                            </div>
+                            <div style="font-size: 11px;">
+                                <strong>Copy Options:</strong><br>
+                                • "Just ${monthly.toFixed(2)}/mo - Less than your daily coffee!"<br>
+                                • "Start for only ${Math.floor(monthly)}.${((monthly % 1) * 100).toFixed(0)}/month"<br>
+                                • "Cancel anytime - Pay as little as ${monthly.toFixed(2)}/mo"
+                            </div>
+                        </div>
+                    `;
+                    break;
+            }
+
+            document.getElementById('pricingOutput').innerHTML = output;
+        }
+
+        // Objection Handler Generator
+        function generateObjectionResponse() {
+            const objection = document.getElementById('objectionType').value;
+            const product = document.getElementById('objectionProduct').value || 'our product';
+
+            const responses = {
+                price: {
+                    title: 'Handling "Too Expensive" Objection',
+                    responses: [
+                        `"${product} costs more upfront, but lasts 5x longer than cheaper alternatives. Total cost over 5 years: significantly less."`,
+                        `"Quality materials and craftsmanship cost more, but you're investing in [specific benefit]. Cheap versions break and need replacing."`,
+                        `"We offer payment plans starting at just $[X]/month - less than your daily coffee for premium quality."`,
+                        `"60-day money-back guarantee means zero risk. If it's not worth the price, full refund - no questions asked."`
+                    ],
+                    cta: 'Try risk-free for 60 days'
+                },
+                trust: {
+                    title: 'Handling "Don\'t Trust Brand" Objection',
+                    responses: [
+                        `"Over 15,000 verified 5-star reviews from real customers just like you."`,
+                        `"BBB A+ rating + Featured in Forbes, TechCrunch, and CNN."`,
+                        `"We've been in business since [year], serving over 500,000 happy customers worldwide."`,
+                        `"100% secure checkout with SSL encryption + 60-day money-back guarantee. Zero risk to try."`
+                    ],
+                    cta: 'See what 15,000+ customers say'
+                },
+                quality: {
+                    title: 'Handling "Quality Concerns" Objection',
+                    responses: [
+                        `"Lifetime warranty on ${product} - we stand behind our quality with a guarantee that outlasts our competitors."`,
+                        `"Premium materials: [specific materials used]. Watch our quality testing video to see the difference."`,
+                        `"Made in [country] with strict quality control. Every unit inspected before shipping."`,
+                        `"Compare us side-by-side with any competitor. 94% of customers say our quality exceeds expectations."`
+                    ],
+                    cta: 'Watch our quality test video'
+                },
+                timing: {
+                    title: 'Handling "Not Right Time" Objection',
+                    responses: [
+                        `"Sale ends tonight at midnight - save [X]% now or pay full price later. Lock in this price today."`,
+                        `"We'll ship it now and you can start using it when ready. Free returns within 60 days if plans change."`,
+                        `"The best time was yesterday, the second-best time is now. Every day you wait is another day without [benefit]."`,
+                        `"Reserve yours now with just a $[X] deposit. Pay the rest when you're ready (within 30 days)."`
+                    ],
+                    cta: 'Reserve yours now - payment plan available'
+                },
+                fit: {
+                    title: 'Handling "Won\'t Fit/Work for Me" Objection',
+                    responses: [
+                        `"Free returns + exchanges. 98% of customers find their perfect fit using our detailed size guide."`,
+                        `"Adjustable/Customizable design fits [size range]. Check our fit guarantee - if it doesn't fit, we'll make it right."`,
+                        `"Try it risk-free for 60 days. If it doesn't work for you, full refund + free return shipping."`,
+                        `"Chat with our fit experts 24/7 - we'll help you find your perfect match before you buy."`
+                    ],
+                    cta: 'Use our fit finder tool - 30 seconds'
+                },
+                shipping: {
+                    title: 'Handling "Shipping Concerns" Objection',
+                    responses: [
+                        `"Free shipping on orders over $[X]. Order now and save on shipping costs."`,
+                        `"Ships same day if ordered by 2pm EST. Arrives in 2-3 business days with tracking."`,
+                        `"Free returns - if you're not happy, we'll pay for return shipping. Zero risk."`,
+                        `"Express shipping available - get it by [date]. We'll even expedite at no extra charge if you need it faster."`
+                    ],
+                    cta: 'Add to cart - ships today'
+                }
+            };
+
+            const response = responses[objection];
+            const output = `
+                <div class="output" style="margin-top: 2%;">
+                    <h4 style="font-size: 12px; margin-bottom: 2%; color: #e91e63;">${response.title}</h4>
+                    <div style="margin-bottom: 2%;">
+                        <strong style="font-size: 11px;">Response Options:</strong>
+                        ${response.responses.map((r, i) => `
+                            <div style="padding: 2%; background: white; border-radius: 4px; margin: 2% 0; font-size: 10px;">
+                                <strong>${i + 1}.</strong> ${r}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div style="padding: 2%; background: #dbeafe; border-radius: 4px; font-size: 10px;">
+                        <strong>Suggested CTA:</strong> "${response.cta}"
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('objectionOutput').innerHTML = output;
+        }
+
+        // Scarcity Copy Generator
+        function generateScarcityCopy() {
+            const type = document.getElementById('scarcityType').value;
+            const stock = parseInt(document.getElementById('stockLevel').value) || 5;
+            const hours = parseInt(document.getElementById('hoursLeft').value) || 24;
+
+            const scarcityMessages = {
+                stock: {
+                    title: 'Low Stock Scarcity',
+                    messages: [
+                        `⚠️ Only ${stock} left in stock - order now before they're gone!`,
+                        `🔥 Selling fast! Just ${stock} units remaining at this price.`,
+                        `Limited availability: ${stock} in stock (127 sold in last 24hrs)`,
+                        `⚡ LOW STOCK ALERT: Only ${stock} available. Once they're gone, they're gone.`
+                    ],
+                    badge: `${stock} LEFT`,
+                    color: '#ef4444'
+                },
+                time: {
+                    title: 'Time-Limited Scarcity',
+                    messages: [
+                        `⏰ Sale ends in ${hours} hours! Save 20% - expires tonight at midnight EST.`,
+                        `🔥 FLASH SALE: ${hours}hrs left to save. Don't miss out!`,
+                        `Last chance! Offer expires in ${hours} hours. Lock in your discount now.`,
+                        `⚠️ Time's running out: ${hours}hrs remaining. After that, back to full price.`
+                    ],
+                    badge: `${hours}H LEFT`,
+                    color: '#f59e0b'
+                },
+                limited: {
+                    title: 'Limited Edition Scarcity',
+                    messages: [
+                        `🎯 Limited Edition: Only 500 units produced. Numbered certificate included.`,
+                        `Exclusive Release: This colorway won't be restocked. Final batch available.`,
+                        `Collector's Item: Once sold out, it's gone forever. Get yours before it's too late.`,
+                        `⭐ Special Edition: Limited production run - not available in stores.`
+                    ],
+                    badge: 'LIMITED',
+                    color: '#8b5cf6'
+                },
+                seasonal: {
+                    title: 'Seasonal Scarcity',
+                    messages: [
+                        `🎄 Holiday Special: This deal won't return until next year. Order now!`,
+                        `Seasonal Exclusive: Available only during [season]. Stock up before it's gone.`,
+                        `🌟 Black Friday Pricing: One time per year - save 40% this weekend only.`,
+                        `Summer Sale Finale: Last chance before fall prices. Save now or pay more later.`
+                    ],
+                    badge: 'SEASONAL',
+                    color: '#10b981'
+                }
+            };
+
+            const scarcity = scarcityMessages[type];
+            const output = `
+                <div class="output" style="margin-top: 2%;">
+                    <div style="display: inline-block; background: ${scarcity.color}; color: white; padding: 1% 3%; border-radius: 4px; font-size: 10px; font-weight: bold; margin-bottom: 2%;">
+                        ${scarcity.badge}
+                    </div>
+                    <h4 style="font-size: 12px; margin-bottom: 2%;">${scarcity.title}</h4>
+                    <div style="margin-bottom: 2%;">
+                        <strong style="font-size: 11px;">Copy Options:</strong>
+                        ${scarcity.messages.map((msg, i) => `
+                            <div style="padding: 2%; background: white; border-left: 3px solid ${scarcity.color}; border-radius: 4px; margin: 2% 0; font-size: 11px;">
+                                ${msg}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div style="padding: 2%; background: #fef3c7; border-radius: 4px; font-size: 10px;">
+                        <strong>⚠️ Ethical Use Warning:</strong><br>
+                        Only use scarcity tactics that are TRUE. Fake scarcity damages trust and can lead to legal issues. 
+                        ${type === 'stock' ? `Make sure you actually have ${stock} units in stock.` : ''}
+                        ${type === 'time' ? `Ensure the deadline is real and the sale actually ends in ${hours} hours.` : ''}
+                    </div>
+                    <div style="padding: 2%; background: #dbeafe; border-radius: 4px; font-size: 10px; margin-top: 2%;">
+                        <strong>Best Practices:</strong><br>
+                        • Combine with social proof ("47 people viewing now")<br>
+                        • Add trust signals (money-back guarantee)<br>
+                        • Make CTA prominent and action-oriented<br>
+                        • Test urgency vs non-urgency messaging (A/B test)
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('scarcityOutput').innerHTML = output;
+        }
+    </script>
+</body>
+</html>
+</body>
+</html>
